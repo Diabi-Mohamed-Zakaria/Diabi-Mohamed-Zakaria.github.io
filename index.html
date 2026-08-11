@@ -53,7 +53,7 @@
 </script>
 <link rel="stylesheet" href="css/style.css">
 
-<!-- Three.js (ES modules via CDN, no bundler/npm in this static project) — used only by js/solar-system.js -->
+<!-- Three.js via CDN, used only by js/solar-system.js -->
 <script type="importmap">
 {
   "imports": {
@@ -183,9 +183,7 @@
         <button id="solar-view-toggle" type="button" class="hidden font-mono text-xs text-fog border border-edge rounded-md px-3 py-1.5 hover:text-signal hover:border-signal transition-colors"></button>
       </div>
 
-      <!-- 3D solar-system view: progressive enhancement, isolated in js/solar-system.js.
-           Stays hidden (and the grid below stays the visible fallback) unless WebGL
-           init succeeds — see requirement #7. -->
+      <!-- js/solar-system.js: stays hidden until WebGL init succeeds -->
       <div id="solar-system-wrap" class="hidden mt-8">
         <p id="solar-hint" class="font-mono text-xs text-fog mb-3"></p>
         <div id="solar-system-canvas-host" class="relative w-full h-[420px] sm:h-[520px] rounded-win border border-edge bg-panel/40 overflow-hidden">
@@ -277,5 +275,6 @@
 <script src="js/main.js"></script>
 <script src="js/starfield.js"></script>
 <script type="module" src="js/solar-system.js"></script>
+<script src="js/mascot.js"></script>
 </body>
 </html>

@@ -1,8 +1,4 @@
-/* =====================================================================
-   SITE_CONTENT
-   Tutto il testo del sito, in italiano / inglese / francese.
-   Per modificare un testo, cerca la chiave qui sotto e cambia il valore.
-===================================================================== */
+// Tutto il testo del sito, in italiano / inglese / francese.
 const SITE_CONTENT = {
 
   it: {
@@ -507,10 +503,7 @@ const SITE_CONTENT = {
   }
 };
 
-/* =====================================================================
-   Contact links — same across languages (only the visible label changes,
-   see SITE_CONTENT[lang].contact.links above).
-===================================================================== */
+// Same across languages — only the visible label changes, see contact.links above.
 const CONTACT_HREF = {
   email: "mailto:mohamedzakariadiabi@gmail.com",
   phone: "tel:+393533067756",

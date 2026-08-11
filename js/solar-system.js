@@ -1,18 +1,3 @@
-/* =====================================================================
-   Solar-system view for the "progetti/" section.
-
-   Progressive enhancement: the projects grid (#projects-grid) is the
-   default, always-visible fallback in index.html. This module only
-   swaps to the 3D scene after confirming WebGL support AND a
-   successful Three.js load AND a successful scene build. Any failure
-   along the way leaves the grid exactly as it was — see requirement
-   #7 in the brief this was built against.
-
-   Project text (name/desc/tags) is read live from SITE_CONTENT
-   (js/i18n.js) via document.documentElement.lang, so this file never
-   forks the copy into a second source of truth and stays in sync
-   with language switches automatically.
-===================================================================== */
 (async () => {
   "use strict";
 
@@ -74,9 +59,6 @@
     attributeFilter: ["lang"]
   });
 
-  /* -----------------------------------------------------------------
-     Capability checks — decide *before* fetching Three.js at all.
-  --------------------------------------------------------------- */
   function supportsWebGL() {
     try {
       const c = document.createElement("canvas");
@@ -107,9 +89,6 @@
     return;
   }
 
-  /* -----------------------------------------------------------------
-     Scene state (populated by initScene)
-  --------------------------------------------------------------- */
   let renderer, scene, camera, controls, star, meshes = [];
   let rafId = null;
   let elapsed = 0;
@@ -137,7 +116,7 @@
     c.width = c.height = size;
     const ctx = c.getContext("2d");
     ctx.clearRect(0, 0, size, size);
-    ctx.fillStyle = "#14110c"; // dark text reads on the bright amber star, same pairing as --color-on-signal
+    ctx.fillStyle = "#14110c"; // pairs with --color-on-signal
     ctx.font = "800 112px Sora, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
@@ -192,9 +171,6 @@
     glow.scale.set(6, 6, 1);
     star.add(glow);
 
-    // "DMZ" initials on the star — a Sprite always billboards to the camera,
-    // so the text stays flat/readable regardless of the star's own spin or
-    // how far the user orbits the camera around it.
     const labelMat = new THREE.SpriteMaterial({
       map: makeLabelTexture("DMZ"), transparent: true, depthTest: false
     });
@@ -252,11 +228,8 @@
     modalTags.innerHTML = (p.tags || []).map(tg => `<span class="tag">${escapeHtml(tg)}</span>`).join("");
 
     if (p.done) {
-      // set the full class list (not classList.add) so "badge-done" and the
-      // Tailwind "hidden" utility (display:none) are never applied together —
-      // style.css loads after Tailwind's CDN stylesheet, so on equal
-      // specificity badge-done's `display:inline-flex` would otherwise win
-      // over `.hidden` and the badge would never actually hide.
+      // full class list, not classList.add: badge-done's display:inline-flex
+      // must never coexist with the "hidden" utility on this element
       modalDone.className = "badge-done shrink-0";
       modalDone.innerHTML = `<svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>${escapeHtml(t.projects.doneLabel)}`;
     } else {
@@ -280,9 +253,6 @@
     if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal();
   });
 
-  /* -----------------------------------------------------------------
-     Pointer interaction (hover tooltip + click-vs-drag detection)
-  --------------------------------------------------------------- */
   const raycaster = new THREE.Raycaster();
   const pointerNDC = new THREE.Vector2();
   let downX = 0, downY = 0, downTime = 0;
@@ -329,9 +299,6 @@
     hideTooltip();
   }
 
-  /* -----------------------------------------------------------------
-     Resize (debounced) + animation loop
-  --------------------------------------------------------------- */
   let resizeTimer = null;
   function onResize() {
     clearTimeout(resizeTimer);
