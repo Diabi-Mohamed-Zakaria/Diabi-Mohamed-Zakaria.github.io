@@ -47,7 +47,7 @@ const SITE_CONTENT = {
           title: "eFarm Group SRL",
           sub: "Stage — Modulo di Ricerca AI",
           desc: "Sviluppo del modulo di ricerca AI di FotoPortale.it, la piattaforma che mette in contatto brand e agenzie con creator. Ho realizzato la pipeline completa: sincronizzazione dei profili, generazione del testo di contesto, embedding e ricerca vettoriale combinata a filtri strutturati, oltre al motore che genera la spiegazione testuale dei risultati tramite un LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker con PostgreSQL/pgvector.",
-          tags: ["PHP", "Symfony", "Twig", "JavaScript", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
+          tags: ["PHP", "Symfony", "Twig", "JavaScript","PHP", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
     },
@@ -87,7 +87,7 @@ const SITE_CONTENT = {
           path: "~/progetti/iron-gym",
           period: "2025",
           desc: "Applicazione web completa per la gestione di una palestra, con pannelli dedicati per amministratori, trainer e clienti. Frontend in HTML5/CSS3 e backend Node.js con API REST.",
-          tags: ["Node.js", "JavaScript", "HTML5/CSS3", "REST API"],
+          tags: ["Node.js", "JavaScript","PHP", "HTML5/CSS3", "REST API"],
           done: true
         },
         {
@@ -132,7 +132,7 @@ const SITE_CONTENT = {
     skills: {
       title: "competenze.json",
       categories: [
-        { label: "linguaggi", items: ["Java", "Python", "JavaScript", "Kotlin", "C", "Swift", "SQL"] },
+        { label: "linguaggi", items: ["Java", "Python", "JavaScript","PHP", "Kotlin", "C", "Swift", "SQL"] },
         { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "HTML5/CSS3", "EJS", "Agno", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
         { label: "cloud & database", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC", "Docker"] },
         { label: "mobile", items: ["Android (Kotlin)", "iOS (Swift)", "SwiftUI"] },
@@ -214,7 +214,7 @@ const SITE_CONTENT = {
           title: "eFarm Group SRL",
           sub: "Internship — AI Search Module",
           desc: "Built the AI-powered search module for FotoPortale.it, a platform connecting brands and agencies with creators. I developed the full pipeline: profile data sync, context-text generation, embeddings and vector search combined with structured filters, plus the engine that generates a natural-language explanation of each result via an LLM. Wrote unit and integration tests with PHPUnit in a Dockerized PostgreSQL/pgvector environment.",
-          tags: ["PHP", "Symfony", "Twig", "JavaScript", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
+          tags: ["PHP", "Symfony", "Twig", "JavaScript","PHP", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
     },
@@ -254,7 +254,7 @@ const SITE_CONTENT = {
           path: "~/projects/iron-gym",
           period: "2025",
           desc: "Full web application for managing a gym, with dedicated panels for administrators, trainers, and members. HTML5/CSS3 frontend with a Node.js backend exposing a REST API.",
-          tags: ["Node.js", "JavaScript", "HTML5/CSS3", "REST API"],
+          tags: ["Node.js", "JavaScript","PHP", "HTML5/CSS3", "REST API"],
           done: true
         },
         {
@@ -299,7 +299,7 @@ const SITE_CONTENT = {
     skills: {
       title: "skills.json",
       categories: [
-        { label: "languages", items: ["Java", "Python", "JavaScript", "Kotlin", "C", "Swift", "SQL"] },
+        { label: "languages", items: ["Java", "Python", "JavaScript","PHP", "Kotlin", "C", "Swift", "SQL"] },
         { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "HTML5/CSS3", "EJS", "Agno", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
         { label: "cloud & database", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC", "Docker"] },
         { label: "mobile", items: ["Android (Kotlin)", "iOS (Swift)", "SwiftUI"] },
@@ -381,7 +381,7 @@ const SITE_CONTENT = {
           title: "eFarm Group SRL",
           sub: "Stage — Module de recherche IA",
           desc: "Développement du module de recherche IA de FotoPortale.it, une plateforme qui met en relation marques et agences avec des créateurs. J'ai construit le pipeline complet : synchronisation des profils, génération du texte de contexte, embeddings et recherche vectorielle combinée à des filtres structurés, ainsi que le moteur générant une explication en langage naturel des résultats via un LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker PostgreSQL/pgvector.",
-          tags: ["PHP", "Symfony", "Twig", "JavaScript", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
+          tags: ["PHP", "Symfony", "Twig", "JavaScript","PHP", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
     },
@@ -421,7 +421,7 @@ const SITE_CONTENT = {
           path: "~/projets/iron-gym",
           period: "2025",
           desc: "Application web complète pour la gestion d'une salle de sport, avec des espaces dédiés aux administrateurs, coachs et clients. Frontend en HTML5/CSS3 et backend Node.js avec API REST.",
-          tags: ["Node.js", "JavaScript", "HTML5/CSS3", "REST API"],
+          tags: ["Node.js", "JavaScript","PHP", "HTML5/CSS3", "REST API"],
           done: true
         },
         {
@@ -466,7 +466,7 @@ const SITE_CONTENT = {
     skills: {
       title: "competences.json",
       categories: [
-        { label: "langages", items: ["Java", "Python", "JavaScript", "Kotlin", "C", "Swift", "SQL"] },
+        { label: "langages", items: ["Java", "Python", "JavaScript","PHP", "Kotlin", "C", "Swift", "SQL"] },
         { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "HTML5/CSS3", "EJS", "Agno", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
         { label: "cloud & bases de données", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC", "Docker"] },
         { label: "mobile", items: ["Android (Kotlin)", "iOS (Swift)", "SwiftUI"] },
