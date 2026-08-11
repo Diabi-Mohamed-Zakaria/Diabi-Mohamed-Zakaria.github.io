@@ -69,14 +69,8 @@
     }
   }
 
-  function isWeakDevice() {
-    const cores = navigator.hardwareConcurrency || 4;
-    const mem = navigator.deviceMemory; // not exposed by all browsers
-    return mobileQuery.matches && cores <= 4 && mem !== undefined && mem <= 2;
-  }
-
-  if (!supportsWebGL() || isWeakDevice()) {
-    console.info("[solar-system] WebGL non disponibile o device poco performante: resto sulla griglia.");
+  if (!supportsWebGL()) {
+    console.info("[solar-system] WebGL non disponibile: resto sulla griglia.");
     return;
   }
 
@@ -266,17 +260,20 @@
     renderer.domElement.style.cursor = hovered ? "pointer" : "grab";
   }
 
-  function onPointerMove(e) {
+  function hitTestAt(clientX, clientY) {
     const rect = host.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
     pointerNDC.x = (x / rect.width) * 2 - 1;
     pointerNDC.y = -(y / rect.height) * 2 + 1;
 
     raycaster.setFromCamera(pointerNDC, camera);
     const hits = raycaster.intersectObjects(meshes, false);
-    const hit = hits.length ? hits[0].object : null;
+    return { hit: hits.length ? hits[0].object : null, x, y };
+  }
 
+  function onPointerMove(e) {
+    const { hit, x, y } = hitTestAt(e.clientX, e.clientY);
     setHovered(hit);
     if (hit) showTooltip(hit.userData.index, x, y);
     else hideTooltip();
@@ -291,7 +288,10 @@
   function onPointerUp(e) {
     const dist = Math.hypot(e.clientX - downX, e.clientY - downY);
     const dt = performance.now() - downTime;
-    if (dist < 6 && dt < 500 && hovered) openModal(hovered.userData.index);
+    if (dist < 6 && dt < 500) {
+      const { hit } = hitTestAt(e.clientX, e.clientY);
+      if (hit) openModal(hit.userData.index);
+    }
   }
 
   function onPointerLeaveHost() {
