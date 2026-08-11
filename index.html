@@ -14,21 +14,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+<script>
+  (function () {
+    var stored = localStorage.getItem("theme");
+    var theme = stored === "light" || stored === "dark"
+      ? stored
+      : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
     theme: {
       extend: {
         colors: {
-          ink: '#0F1115',
-          panel: '#171A21',
-          panel2: '#1E222B',
-          edge: '#2A2F3A',
-          bone: '#E7E9EE',
-          fog: '#9098AC',
-          signal: '#E8A33D',
-          signaldim: '#8A6528',
-          ok: '#4FD1C5',
+          ink: 'rgb(var(--color-ink-rgb) / <alpha-value>)',
+          panel: 'rgb(var(--color-panel-rgb) / <alpha-value>)',
+          panel2: 'rgb(var(--color-panel2-rgb) / <alpha-value>)',
+          edge: 'rgb(var(--color-edge-rgb) / <alpha-value>)',
+          bone: 'rgb(var(--color-bone-rgb) / <alpha-value>)',
+          fog: 'rgb(var(--color-fog-rgb) / <alpha-value>)',
+          signal: 'rgb(var(--color-signal-rgb) / <alpha-value>)',
+          signaldim: 'rgb(var(--color-signaldim-rgb) / <alpha-value>)',
+          ok: 'rgb(var(--color-ok-rgb) / <alpha-value>)',
         },
         fontFamily: {
           display: ['Sora', 'sans-serif'],
@@ -43,8 +52,20 @@
   }
 </script>
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Three.js (ES modules via CDN, no bundler/npm in this static project) — used only by js/solar-system.js -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
 </head>
 <body class="bg-ink text-bone font-body antialiased">
+
+<canvas id="starfield-canvas" aria-hidden="true"></canvas>
 
 <a href="#main" class="skip-link">Vai al contenuto</a>
 
@@ -68,6 +89,12 @@
       <div id="lang-switch" class="hidden sm:flex items-center gap-0.5 shrink-0 font-mono text-xs border border-edge rounded-md p-0.5" role="group" aria-label="Lingua">
         <!-- injected by JS -->
       </div>
+
+      <!-- theme toggle -->
+      <button id="theme-toggle" type="button" class="shrink-0 w-8 h-8 flex items-center justify-center rounded-md border border-edge text-fog hover:text-signal hover:border-signal transition-colors">
+        <span class="icon-sun"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.5v1.4M8 13.1v1.4M2.6 2.6l1 1M12.4 12.4l1 1M1.5 8h1.4M13.1 8h1.4M2.6 13.4l1-1M12.4 3.6l1-1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span>
+        <span class="icon-moon"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 9.8A5.8 5.8 0 1 1 6.2 2.5a4.6 4.6 0 0 0 7.3 7.3Z" fill="currentColor"/></svg></span>
+      </button>
 
       <!-- mobile menu button -->
       <button id="mobile-menu-btn" class="sm:hidden shrink-0 w-9 h-9 flex items-center justify-center rounded-md border border-edge text-fog" aria-label="Apri menu" aria-expanded="false">
@@ -121,8 +148,8 @@
             <div class="p-6 flex flex-col items-center gap-3">
               <div class="w-20 h-20 rounded-full border border-signal/40 bg-panel2 flex items-center justify-center font-display font-extrabold text-2xl text-signal">MZ</div>
               <p class="font-mono text-xs text-fog text-center leading-relaxed">
-                <span class="text-ok">$</span> whoami<br>
-                <span class="text-bone">diabi-mohamed-zakaria</span><span class="cursor-blink text-signal">▍</span>
+                <span class="text-ok">$</span> <span id="hero-whoami-cmd"></span><br>
+                <span class="text-bone">Diabi-Mohamed-Zakaria</span><span class="cursor-blink text-signal">▍</span>
               </p>
             </div>
           </div>
@@ -151,7 +178,21 @@
   <!-- ============ PROJECTS / projects/ ============ -->
   <section id="projects" class="border-b border-edge">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
-      <h2 id="projects-title" class="section-title"></h2>
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 id="projects-title" class="section-title"></h2>
+        <button id="solar-view-toggle" type="button" class="hidden font-mono text-xs text-fog border border-edge rounded-md px-3 py-1.5 hover:text-signal hover:border-signal transition-colors"></button>
+      </div>
+
+      <!-- 3D solar-system view: progressive enhancement, isolated in js/solar-system.js.
+           Stays hidden (and the grid below stays the visible fallback) unless WebGL
+           init succeeds — see requirement #7. -->
+      <div id="solar-system-wrap" class="hidden mt-8">
+        <p id="solar-hint" class="font-mono text-xs text-fog mb-3"></p>
+        <div id="solar-system-canvas-host" class="relative w-full h-[420px] sm:h-[520px] rounded-win border border-edge bg-panel/40 overflow-hidden">
+          <div id="solar-tooltip" class="hidden absolute z-10 pointer-events-none font-mono text-xs bg-panel border border-edge rounded-md px-2.5 py-1.5 shadow-xl max-w-[220px]"></div>
+        </div>
+      </div>
+
       <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8"></div>
     </div>
   </section>
@@ -199,6 +240,31 @@
 
 </main>
 
+<!-- Project detail modal, populated + toggled by js/solar-system.js -->
+<div id="project-modal" class="hidden fixed inset-0 z-[60] items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="project-modal-title">
+  <div id="project-modal-backdrop" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+  <div class="relative w-full max-w-lg rounded-win border border-edge bg-panel overflow-hidden shadow-2xl">
+    <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-edge bg-panel2">
+      <span class="w-2 h-2 rounded-full bg-edge"></span>
+      <span class="w-2 h-2 rounded-full bg-edge"></span>
+      <span class="w-2 h-2 rounded-full bg-signal"></span>
+      <span id="project-modal-path" class="font-mono text-[10px] text-fog ml-2"></span>
+      <button id="project-modal-close" type="button" class="ml-auto text-fog hover:text-signal transition-colors" aria-label="Chiudi">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="p-6 max-h-[70vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-3">
+        <h3 id="project-modal-title" class="font-display font-extrabold text-xl text-bone"></h3>
+        <span id="project-modal-done" class="hidden shrink-0"></span>
+      </div>
+      <p id="project-modal-period" class="font-mono text-xs text-fog mt-1"></p>
+      <p id="project-modal-desc" class="text-bone/90 mt-4 leading-relaxed"></p>
+      <div id="project-modal-tags" class="flex flex-wrap gap-1.5 mt-5"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ FOOTER ============ -->
 <footer class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
   <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-fog font-mono">
@@ -209,5 +275,7 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+<script src="js/starfield.js"></script>
+<script type="module" src="js/solar-system.js"></script>
 </body>
 </html>

@@ -2,7 +2,6 @@
    SITE_CONTENT
    Tutto il testo del sito, in italiano / inglese / francese.
    Per modificare un testo, cerca la chiave qui sotto e cambia il valore.
-   Le voci con "// TODO" vanno completate a mano (link social ecc.).
 ===================================================================== */
 const SITE_CONTENT = {
 
@@ -18,15 +17,25 @@ const SITE_CONTENT = {
       skills: "competenze.json",
       contact: "contatti.sh"
     },
+    theme: {
+      label: "Cambia tema chiaro/scuro"
+    },
+    solar: {
+      hint: "Trascina per ruotare, scorri per lo zoom, clicca su un pianeta per i dettagli.",
+      close: "Chiudi",
+      gridToggle: "Vista griglia",
+      sceneToggle: "Vista 3D"
+    },
     hero: {
       eyebrow: "Laureando in Informatica",
       name: "Diabi Mohamed Zakaria",
       tagline: "Sviluppatore Full-Stack, Mobile & AI",
       bio: "Studente di Informatica all'Università del Piemonte Orientale con solida esperienza pratica nello sviluppo software full-stack, mobile e distribuito. Progetto e realizzo applicazioni reali che spaziano da backend e infrastrutture cloud a sistemi mobile e intelligenza artificiale, con particolare interesse per i modelli generativi, le pipeline basate su LLM e la ricerca semantica.",
       location: "Vercelli, Italia",
-      status: "In stage presso Foto Portale (lug–set 2026)",
+      status: "In stage presso eFarm Group SRL (lug–set 2026)",
       ctaPrimary: "Scrivimi",
-      ctaSecondary: "Vedi i progetti"
+      ctaSecondary: "Vedi i progetti",
+      whoamiCmd: "chiSono"
     },
     path: {
       title: "percorso.log",
@@ -39,9 +48,9 @@ const SITE_CONTENT = {
       experience: [
         {
           period: "Lug 2026 — Set 2026 · 3 mesi",
-          title: "Foto Portale",
+          title: "eFarm Group SRL",
           sub: "Stage — Modulo di Ricerca AI",
-          desc: "Sviluppo del modulo di ricerca AI di Foto Portale, la piattaforma che mette in contatto brand e agenzie con creator. Ho realizzato la pipeline completa: sincronizzazione dei profili, generazione del testo di contesto, embedding e ricerca vettoriale combinata a filtri strutturati, oltre al motore che genera la spiegazione testuale dei risultati tramite un LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker con PostgreSQL/pgvector.",
+          desc: "Sviluppo del modulo di ricerca AI di FotoPortale.it, la piattaforma che mette in contatto brand e agenzie con creator. Ho realizzato la pipeline completa: sincronizzazione dei profili, generazione del testo di contesto, embedding e ricerca vettoriale combinata a filtri strutturati, oltre al motore che genera la spiegazione testuale dei risultati tramite un LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker con PostgreSQL/pgvector.",
           tags: ["PHP", "Symfony", "Twig", "JavaScript", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
@@ -51,54 +60,61 @@ const SITE_CONTENT = {
       items: [
         {
           name: "MiCasaEsTuCasa",
+          category: "mobile",
           path: "~/progetti/micasaestucasa",
           period: "2026",
           desc: "App Android in stile Airbnb per la gestione di alloggi: ricerca, prenotazione e pubblicazione di annunci. Architettura client-server con autenticazione Firebase e dati in tempo reale.",
           tags: ["Kotlin", "Firebase", "Android"],
-          done: false
+          done: true
         },
         {
           name: "DartHub",
+          category: "backend",
           path: "~/progetti/darthub",
           period: "2025 — 2026",
           desc: "Piattaforma per la gestione di partite e tornei di freccette, che collega giochi fisici a Internet tramite sensori IoT. Architettura a 7 microservizi Java con API Gateway, comunicazione real-time via MQTT ed edge component con modalità offline. Progetto di laboratorio universitario (PISSIR).",
           tags: ["Java", "Javalin", "JWT", "SQLite/JDBC", "MQTT", "API Gateway", "Microservizi", "Alpine.js"],
-          done: false
+          done: true
         },
         {
           name: "EventHub",
+          category: "backend",
           path: "~/progetti/eventhub",
           period: "2025 — 2026",
           desc: "Sistema distribuito per la gestione di eventi, sviluppato in Java con architettura RMI. Ruoli distinti per organizzatori e utenti. Progetto di Ingegneria del Software con metodologia Agile e documentazione UML.",
           tags: ["Java", "RMI", "UML", "Agile"],
-          done: false
+          done: true
         },
         {
           name: "Iron Gym Website",
+          category: "web",
           path: "~/progetti/iron-gym",
           period: "2025",
           desc: "Applicazione web completa per la gestione di una palestra, con pannelli dedicati per amministratori, trainer e clienti. Frontend in HTML5/CSS3 e backend Node.js con API REST.",
           tags: ["Node.js", "JavaScript", "HTML5/CSS3", "REST API"],
-          done: false
+          done: true
         },
         {
           name: "Compilator AC/DC",
+          category: "academic",
           path: "~/progetti/compilator-ac-dc",
           period: "2026",
           desc: "Compilatore che traduce il linguaggio AC nel linguaggio DC, con fasi di analisi lessicale, sintattica e traduzione del codice. Progetto accademico avanzato sull'architettura dei linguaggi di programmazione.",
           tags: ["Java", "Compilatori", "Analisi sintattica"],
-          done: false
+          done: true
         },
         {
           name: "OggettIUtilInVendita",
+          category: "mobile",
           path: "~/progetti/oggettiutilinvendita",
           period: "2026",
           desc: "App iOS per la compravendita di oggetti usati, in stile Subito.it. Gestione annunci, ricerca per categoria, profili utente e messaggistica tra acquirente e venditore.",
           tags: ["Swift", "iOS", "Firebase"],
-          done: false
+          done: true
         },
         {
           name: "StudyMind",
+          category: "ai",
           path: "~/progetti/studymind",
           period: "2026",
           desc: "Sistema multi-agente per sessioni di studio personalizzate: genera appunti sintetici e domande calibrate a partire dal materiale caricato, e risponde con metodo socratico invece di dare la soluzione diretta. Adattamento dinamico sulle lacune rilevate e report finale delle performance.",
@@ -107,11 +123,12 @@ const SITE_CONTENT = {
         },
         {
           name: "Progetto Database",
+          category: "database",
           path: "~/progetti/db-teoria-sql",
           period: "2024 — 2025",
           desc: "Progettazione e implementazione di database relazionali con PL/pgSQL: dalla modellazione ER alla scrittura di procedure e query complesse in PostgreSQL.",
           tags: ["PostgreSQL", "PL/pgSQL", "SQL"],
-          done: false
+          done: true
         }
       ],
       doneLabel: "Completato"
@@ -167,15 +184,25 @@ const SITE_CONTENT = {
       skills: "skills.json",
       contact: "contact.sh"
     },
+    theme: {
+      label: "Toggle light/dark theme"
+    },
+    solar: {
+      hint: "Drag to rotate, scroll to zoom, click a planet for details.",
+      close: "Close",
+      gridToggle: "Grid view",
+      sceneToggle: "3D view"
+    },
     hero: {
       eyebrow: "Computer Science Student (BSc, in progress)",
       name: "Diabi Mohamed Zakaria",
       tagline: "Full-Stack, Mobile & AI Developer",
       bio: "Computer Science student at Università del Piemonte Orientale with solid hands-on experience in full-stack, mobile, and distributed software development. I design and build real applications spanning backend systems and cloud infrastructure to mobile apps and artificial intelligence, with a particular interest in generative models, LLM-based pipelines, and semantic search.",
       location: "Vercelli, Italy",
-      status: "Currently interning at Foto Portale (Jul–Sep 2026)",
+      status: "Currently interning at eFarm Group SRL (Jul–Sep 2026)",
       ctaPrimary: "Get in touch",
-      ctaSecondary: "View projects"
+      ctaSecondary: "View projects",
+      whoamiCmd: "whoAmI"
     },
     path: {
       title: "path.log",
@@ -188,9 +215,9 @@ const SITE_CONTENT = {
       experience: [
         {
           period: "Jul 2026 — Sep 2026 · 3 months",
-          title: "Foto Portale",
+          title: "eFarm Group SRL",
           sub: "Internship — AI Search Module",
-          desc: "Built the AI-powered search module for Foto Portale, a platform connecting brands and agencies with creators. I developed the full pipeline: profile data sync, context-text generation, embeddings and vector search combined with structured filters, plus the engine that generates a natural-language explanation of each result via an LLM. Wrote unit and integration tests with PHPUnit in a Dockerized PostgreSQL/pgvector environment.",
+          desc: "Built the AI-powered search module for FotoPortale.it, a platform connecting brands and agencies with creators. I developed the full pipeline: profile data sync, context-text generation, embeddings and vector search combined with structured filters, plus the engine that generates a natural-language explanation of each result via an LLM. Wrote unit and integration tests with PHPUnit in a Dockerized PostgreSQL/pgvector environment.",
           tags: ["PHP", "Symfony", "Twig", "JavaScript", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
@@ -200,54 +227,61 @@ const SITE_CONTENT = {
       items: [
         {
           name: "MiCasaEsTuCasa",
+          category: "mobile",
           path: "~/projects/micasaestucasa",
           period: "2026",
           desc: "Airbnb-style Android app for managing accommodations: search, booking, and listing management. Client-server architecture with Firebase authentication and real-time data.",
           tags: ["Kotlin", "Firebase", "Android"],
-          done: false
+          done: true
         },
         {
           name: "DartHub",
+          category: "backend",
           path: "~/projects/darthub",
           period: "2025 — 2026",
           desc: "Platform for managing darts matches and tournaments, connecting physical games to the internet via IoT sensors. 7-microservice Java architecture with an API Gateway, real-time MQTT communication, and an edge component with offline mode. University lab project (PISSIR).",
           tags: ["Java", "Javalin", "JWT", "SQLite/JDBC", "MQTT", "API Gateway", "Microservices", "Alpine.js"],
-          done: false
+          done: true
         },
         {
           name: "EventHub",
+          category: "backend",
           path: "~/projects/eventhub",
           period: "2025 — 2026",
           desc: "Distributed event-management system built in Java with an RMI architecture, with distinct roles for organizers and attendees. Software Engineering project built with Agile methodology and UML documentation.",
           tags: ["Java", "RMI", "UML", "Agile"],
-          done: false
+          done: true
         },
         {
           name: "Iron Gym Website",
+          category: "web",
           path: "~/projects/iron-gym",
           period: "2025",
           desc: "Full web application for managing a gym, with dedicated panels for administrators, trainers, and members. HTML5/CSS3 frontend with a Node.js backend exposing a REST API.",
           tags: ["Node.js", "JavaScript", "HTML5/CSS3", "REST API"],
-          done: false
+          done: true
         },
         {
           name: "Compilator AC/DC",
+          category: "academic",
           path: "~/projects/compilator-ac-dc",
           period: "2026",
           desc: "Compiler that translates the AC language into DC, implementing lexical analysis, parsing, and code translation phases. Advanced academic project on programming-language architecture.",
           tags: ["Java", "Compilers", "Parsing"],
-          done: false
+          done: true
         },
         {
           name: "OggettIUtilInVendita",
+          category: "mobile",
           path: "~/projects/oggettiutilinvendita",
           period: "2026",
           desc: "iOS marketplace app for buying and selling second-hand items, similar to Subito.it. Listing management, category search, user profiles, and buyer–seller messaging.",
           tags: ["Swift", "iOS", "Firebase"],
-          done: false
+          done: true
         },
         {
           name: "StudyMind",
+          category: "ai",
           path: "~/projects/studymind",
           period: "2026",
           desc: "Multi-agent system for personalized study sessions: generates synthetic notes and calibrated questions from uploaded material, and answers using the Socratic method instead of giving direct solutions. Dynamically adapts to detected gaps and produces a final performance report.",
@@ -256,11 +290,12 @@ const SITE_CONTENT = {
         },
         {
           name: "Progetto Database",
+          category: "database",
           path: "~/projects/db-theory-sql",
           period: "2024 — 2025",
           desc: "Design and implementation of relational databases with PL/pgSQL: from ER modeling to writing complex procedures and queries in PostgreSQL.",
           tags: ["PostgreSQL", "PL/pgSQL", "SQL"],
-          done: false
+          done: true
         }
       ],
       doneLabel: "Completed"
@@ -316,15 +351,25 @@ const SITE_CONTENT = {
       skills: "competences.json",
       contact: "contact.sh"
     },
+    theme: {
+      label: "Changer de thème clair/sombre"
+    },
+    solar: {
+      hint: "Glissez pour tourner, faites défiler pour zoomer, cliquez sur une planète pour les détails.",
+      close: "Fermer",
+      gridToggle: "Vue grille",
+      sceneToggle: "Vue 3D"
+    },
     hero: {
       eyebrow: "Étudiant en Informatique (Licence en cours)",
       name: "Diabi Mohamed Zakaria",
       tagline: "Développeur Full-Stack, Mobile & IA",
       bio: "Étudiant en informatique à l'Università del Piemonte Orientale, avec une solide expérience pratique du développement logiciel full-stack, mobile et distribué. Je conçois et réalise des applications réelles allant des backends et infrastructures cloud aux systèmes mobiles et à l'intelligence artificielle, avec un intérêt particulier pour les modèles génératifs, les pipelines basés sur des LLM et la recherche sémantique.",
       location: "Vercelli, Italie",
-      status: "En stage chez Foto Portale (juil.–sept. 2026)",
+      status: "En stage chez eFarm Group SRL (juil.–sept. 2026)",
       ctaPrimary: "Me contacter",
-      ctaSecondary: "Voir les projets"
+      ctaSecondary: "Voir les projets",
+      whoamiCmd: "quiJeSuis"
     },
     path: {
       title: "parcours.log",
@@ -337,9 +382,9 @@ const SITE_CONTENT = {
       experience: [
         {
           period: "Juil. 2026 — Sept. 2026 · 3 mois",
-          title: "Foto Portale",
+          title: "eFarm Group SRL",
           sub: "Stage — Module de recherche IA",
-          desc: "Développement du module de recherche IA de Foto Portale, une plateforme qui met en relation marques et agences avec des créateurs. J'ai construit le pipeline complet : synchronisation des profils, génération du texte de contexte, embeddings et recherche vectorielle combinée à des filtres structurés, ainsi que le moteur générant une explication en langage naturel des résultats via un LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker PostgreSQL/pgvector.",
+          desc: "Développement du module de recherche IA de FotoPortale.it, une plateforme qui met en relation marques et agences avec des créateurs. J'ai construit le pipeline complet : synchronisation des profils, génération du texte de contexte, embeddings et recherche vectorielle combinée à des filtres structurés, ainsi que le moteur générant une explication en langage naturel des résultats via un LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker PostgreSQL/pgvector.",
           tags: ["PHP", "Symfony", "Twig", "JavaScript", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
@@ -349,54 +394,61 @@ const SITE_CONTENT = {
       items: [
         {
           name: "MiCasaEsTuCasa",
+          category: "mobile",
           path: "~/projets/micasaestucasa",
           period: "2026",
           desc: "Application Android façon Airbnb pour la gestion de logements : recherche, réservation et publication d'annonces. Architecture client-serveur avec authentification Firebase et données en temps réel.",
           tags: ["Kotlin", "Firebase", "Android"],
-          done: false
+          done: true
         },
         {
           name: "DartHub",
+          category: "backend",
           path: "~/projets/darthub",
           period: "2025 — 2026",
           desc: "Plateforme de gestion de matchs et tournois de fléchettes, reliant des jeux physiques à Internet via des capteurs IoT. Architecture à 7 microservices Java avec API Gateway, communication temps réel via MQTT et un composant edge avec mode hors-ligne. Projet de laboratoire universitaire (PISSIR).",
           tags: ["Java", "Javalin", "JWT", "SQLite/JDBC", "MQTT", "API Gateway", "Microservices", "Alpine.js"],
-          done: false
+          done: true
         },
         {
           name: "EventHub",
+          category: "backend",
           path: "~/projets/eventhub",
           period: "2025 — 2026",
           desc: "Système distribué de gestion d'événements développé en Java avec une architecture RMI, avec des rôles distincts pour organisateurs et participants. Projet de génie logiciel développé selon une méthodologie Agile avec documentation UML.",
           tags: ["Java", "RMI", "UML", "Agile"],
-          done: false
+          done: true
         },
         {
           name: "Iron Gym Website",
+          category: "web",
           path: "~/projets/iron-gym",
           period: "2025",
           desc: "Application web complète pour la gestion d'une salle de sport, avec des espaces dédiés aux administrateurs, coachs et clients. Frontend en HTML5/CSS3 et backend Node.js avec API REST.",
           tags: ["Node.js", "JavaScript", "HTML5/CSS3", "REST API"],
-          done: false
+          done: true
         },
         {
           name: "Compilator AC/DC",
+          category: "academic",
           path: "~/projets/compilator-ac-dc",
           period: "2026",
           desc: "Compilateur traduisant le langage AC vers le langage DC, avec des phases d'analyse lexicale, syntaxique et de traduction du code. Projet académique avancé sur l'architecture des langages de programmation.",
           tags: ["Java", "Compilateurs", "Analyse syntaxique"],
-          done: false
+          done: true
         },
         {
           name: "OggettIUtilInVendita",
+          category: "mobile",
           path: "~/projets/oggettiutilinvendita",
           period: "2026",
           desc: "Application iOS de petites annonces pour l'achat et la vente d'objets d'occasion, dans l'esprit de Subito.it. Gestion des annonces, recherche par catégorie, profils utilisateurs et messagerie acheteur-vendeur.",
           tags: ["Swift", "iOS", "Firebase"],
-          done: false
+          done: true
         },
         {
           name: "StudyMind",
+          category: "ai",
           path: "~/projets/studymind",
           period: "2026",
           desc: "Système multi-agents pour des sessions d'étude personnalisées : génère des notes synthétiques et des questions calibrées à partir du matériel fourni, et répond selon la méthode socratique plutôt que de donner la solution directe. S'adapte dynamiquement aux lacunes détectées et produit un rapport final de performance.",
@@ -405,11 +457,12 @@ const SITE_CONTENT = {
         },
         {
           name: "Progetto Database",
+          category: "database",
           path: "~/projets/db-theorie-sql",
           period: "2024 — 2025",
           desc: "Conception et implémentation de bases de données relationnelles avec PL/pgSQL : de la modélisation ER à l'écriture de procédures et requêtes complexes en PostgreSQL.",
           tags: ["PostgreSQL", "PL/pgSQL", "SQL"],
-          done: false
+          done: true
         }
       ],
       doneLabel: "Terminé"
@@ -457,15 +510,16 @@ const SITE_CONTENT = {
 /* =====================================================================
    Contact links — same across languages (only the visible label changes,
    see SITE_CONTENT[lang].contact.links above).
-   // TODO: sostituisci "#" con l'URL reale del tuo profilo LinkedIn.
-   // TODO: verifica che lo username GitHub sia corretto.
 ===================================================================== */
 const CONTACT_HREF = {
   email: "mailto:mohamedzakariadiabi@gmail.com",
   phone: "tel:+393533067756",
   whatsapp: "https://wa.me/393533067756",
-  github: "https://github.com/Diabi-Mohamed-Zakaria", // TODO: verifica username
-  linkedin: "#" // TODO: incolla qui l'URL del tuo profilo LinkedIn
+  github: "https://github.com/Diabi-Mohamed-Zakaria", 
+  linkedin: "www.linkedin.com/in/m-zakaria-diabi-11042a352"
 };
 
 const SUPPORTED_LANGS = ["it", "en", "fr"];
+
+window.SITE_CONTENT = SITE_CONTENT;
+window.SUPPORTED_LANGS = SUPPORTED_LANGS;

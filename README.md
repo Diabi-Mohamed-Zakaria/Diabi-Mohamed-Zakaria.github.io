@@ -1,6 +1,6 @@
 # Portfolio — Diabi Mohamed Zakaria
 
-Sito personale statico (HTML + CSS + JS, Tailwind via CDN, **nessuna build**), in 3 lingue (IT/EN/FR) con selettore in alto a destra. Pensato per essere pubblicato così com'è su GitHub Pages, nel repository `Diabi-Mohamed-Zakaria.github.io`.
+Sito personale statico (HTML + CSS + JS, Tailwind via CDN, **nessuna build**), in 3 lingue (IT/EN/FR) con selettore in alto a destra. Pensato per essere pubblicato così com'è su GitHub Pages, nel repository `diabi-mohamed-zakaria.github.io`.
 
 ## Struttura del progetto
 
@@ -29,16 +29,6 @@ python3 -m http.server 8000
 # poi apri http://localhost:8000
 ```
 
-## Cose da completare prima di pubblicare ⚠️
-
-Ho lasciato due `// TODO` in `js/i18n.js`, dentro l'oggetto `CONTACT_HREF`:
-
-1. **LinkedIn** — al momento punta a `"#"`. Sostituiscilo con l'URL reale del tuo profilo, es. `https://www.linkedin.com/in/tuonome`.
-2. **GitHub** — ho impostato `https://github.com/Diabi-Mohamed-Zakaria` (dedotto dal nome del repository). Verifica che sia il tuo username corretto.
-
-Cerca `TODO` nel file per trovarli subito.
-
-Nota anche la riga `hero.status` in `js/i18n.js` (una per lingua): dice che sei "in stage presso Foto Portale" con le date dello stage (lug–set 2026) prese dal tuo CV. Ricordati di aggiornarla (o rimuoverla) quando lo stage finisce.
 
 ## Come pubblicare su GitHub Pages
 
@@ -52,7 +42,7 @@ git commit -m "Primo sito portfolio"
 git push origin main
 ```
 
-Dopo qualche minuto il sito sarà live su `https://diabi-mohamed-zakaria.github.io/`.
+Dopo qualche minuto il sito sarà live su `https://Diabi-Mohamed-Zakaria.github.io/`.
 
 Se il branch di default del repository non è `main` (es. `master`), usa quel nome al posto di `main`.
 
@@ -69,9 +59,3 @@ Per aggiungere un nuovo progetto, copia un blocco esistente dentro `projects.ite
 - La lingua scelta viene salvata in `localStorage`, così chi torna sul sito la ritrova.
 - Font: **Sora** (titoli), **JetBrains Mono** (etichette/nav, richiama un editor di codice), **IBM Plex Sans** (testo).
 - Rispetta `prefers-reduced-motion`: chi disattiva le animazioni nel sistema operativo non vede l'effetto di scrittura o le transizioni.
-
-## Prossimi miglioramenti possibili (facoltativi)
-
-- Sostituire il riquadro `whoami.sh` nella hero con una tua foto reale (basta mettere l'immagine in `images/` e sostituire il blocco `<div class="w-20 h-20 rounded-full ...">MZ</div>` in `index.html` con un tag `<img>`).
-- Aggiungere link diretti ai repository dei singoli progetti (campo `url` da aggiungere a ogni progetto in `i18n.js` + un link nella card in `main.js`).
-- Dominio personalizzato: aggiungere un file `CNAME` nella root con il tuo dominio, se ne acquisti uno.

@@ -32,6 +32,18 @@
   let typeTimer = null;
 
   /* ---------------------------------------------------------------
+     Theme handling (dark / light)
+  --------------------------------------------------------------- */
+  function currentTheme() {
+    return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+  }
+
+  function renderTheme(t) {
+    const btn = document.getElementById("theme-toggle");
+    if (btn) btn.setAttribute("aria-label", t.theme.label);
+  }
+
+  /* ---------------------------------------------------------------
      Render helpers
   --------------------------------------------------------------- */
   function el(tag, className, html) {
@@ -83,6 +95,7 @@
     document.getElementById("hero-status").innerHTML = `<span class="w-2 h-2 rounded-full bg-ok inline-block"></span><span>${t.hero.status}</span>`;
     document.getElementById("hero-cta-primary").textContent = t.hero.ctaPrimary;
     document.getElementById("hero-cta-secondary").textContent = t.hero.ctaSecondary;
+    document.getElementById("hero-whoami-cmd").textContent = t.hero.whoamiCmd;
 
     const linksWrap = document.getElementById("hero-links");
     linksWrap.innerHTML = LINK_ORDER.map(key => {
@@ -199,6 +212,7 @@
     const t = SITE_CONTENT[currentLang];
     renderMeta(t);
     renderNav(t);
+    renderTheme(t);
     renderHero(t);
     renderPath(t);
     renderProjects(t);
@@ -248,6 +262,14 @@
      Event delegation (survives re-renders since it's on document)
   --------------------------------------------------------------- */
   document.addEventListener("click", (e) => {
+    const themeBtn = e.target.closest("#theme-toggle");
+    if (themeBtn) {
+      const next = currentTheme() === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      return;
+    }
+
     const langBtn = e.target.closest("[data-lang]");
     if (langBtn) {
       const lang = langBtn.getAttribute("data-lang");
