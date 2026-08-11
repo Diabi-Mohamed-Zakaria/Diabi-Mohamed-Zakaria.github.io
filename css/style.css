@@ -1,0 +1,347 @@
+/* ===================================================================
+   Base
+=================================================================== */
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 3.75rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: #E8A33D;
+  color: #0F1115;
+}
+
+/* thin custom scrollbar for the whole page */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0F1115; }
+::-webkit-scrollbar-thumb { background: #2A2F3A; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4152; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #E8A33D;
+  color: #0F1115;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  border-radius: 0 0 6px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #E8A33D;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===================================================================
+   Background texture: faint dot grid behind the hero (editor gutter feel)
+=================================================================== */
+.dot-grid {
+  background-image: radial-gradient(rgba(231, 233, 238, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 60% at 30% 20%, black 40%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 30% 20%, black 40%, transparent 90%);
+}
+
+/* ===================================================================
+   Nav tabs
+=================================================================== */
+.nav-tab {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #9098AC;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.nav-tab:hover {
+  color: #E7E9EE;
+}
+.nav-tab.is-active {
+  color: #E8A33D;
+  border-bottom-color: #E8A33D;
+}
+
+.lang-pill {
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  color: #9098AC;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.lang-pill:hover { color: #E7E9EE; }
+.lang-pill.is-active {
+  background: #E8A33D;
+  color: #0F1115;
+  font-weight: 600;
+}
+
+/* ===================================================================
+   Typed cursor
+=================================================================== */
+.cursor-blink {
+  display: inline-block;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ===================================================================
+   Section title
+=================================================================== */
+.section-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  color: #E7E9EE;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-title::before {
+  content: '//';
+  color: #E8A33D;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* ===================================================================
+   Buttons
+=================================================================== */
+.btn-primary,
+.btn-ghost {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.65rem 1.15rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-primary {
+  background: #E8A33D;
+  color: #0F1115;
+}
+.btn-primary:hover {
+  background: #f3b558;
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  border: 1px solid #2A2F3A;
+  color: #E7E9EE;
+  background: transparent;
+}
+.btn-ghost:hover {
+  border-color: #E8A33D;
+  color: #E8A33D;
+  transform: translateY(-1px);
+}
+
+/* pill link chips in hero / contact */
+.chip-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: #9098AC;
+  border: 1px solid #2A2F3A;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.chip-link:hover {
+  border-color: #E8A33D;
+  color: #E8A33D;
+}
+
+/* ===================================================================
+   Timeline / log list (education + experience)
+=================================================================== */
+.log-list {
+  border-left: 1px solid #2A2F3A;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.log-item {
+  position: relative;
+  padding-left: 1.25rem;
+}
+.log-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.35rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #0F1115;
+  border: 2px solid #E8A33D;
+}
+.log-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #E8A33D;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.log-title {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  color: #E7E9EE;
+  font-size: 1.02rem;
+}
+.log-sub {
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: #9098AC;
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+.log-desc {
+  color: #c3c7d3;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-top: 0.5rem;
+}
+
+/* ===================================================================
+   Tag chips (tech stack)
+=================================================================== */
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: #9098AC;
+  background: #1E222B;
+  border: 1px solid #2A2F3A;
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+}
+
+/* ===================================================================
+   Project cards
+=================================================================== */
+.project-card {
+  background: #171A21;
+  border: 1px solid #2A2F3A;
+  border-radius: 10px;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+.project-card:hover {
+  border-color: #E8A33D;
+  transform: translateY(-2px);
+}
+.project-path {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: #565f74;
+}
+.project-name {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #E7E9EE;
+}
+.project-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #9098AC;
+}
+.project-desc {
+  color: #c3c7d3;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  flex: 1;
+}
+.badge-done {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: #4FD1C5;
+  background: rgba(79, 209, 197, 0.1);
+  border: 1px solid rgba(79, 209, 197, 0.35);
+  border-radius: 5px;
+  padding: 0.18rem 0.45rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: fit-content;
+}
+
+/* ===================================================================
+   Skills
+=================================================================== */
+.skill-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #4FD1C5;
+}
+.skill-punct {
+  color: #565f74;
+}
+
+/* language proficiency bars */
+.lang-row .lang-track {
+  background: #1E222B;
+  border: 1px solid #2A2F3A;
+  border-radius: 999px;
+  height: 6px;
+  overflow: hidden;
+}
+.lang-row .lang-fill {
+  background: #E8A33D;
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* ===================================================================
+   Scroll reveal
+=================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}

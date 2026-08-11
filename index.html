@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diabi Mohamed Zakaria — Portfolio</title>
+<meta id="meta-description" name="description" content="Diabi Mohamed Zakaria — Laureando in Informatica, sviluppatore full-stack, mobile & AI.">
+<meta id="meta-og-title" property="og:title" content="Diabi Mohamed Zakaria — Portfolio">
+<meta id="meta-og-description" property="og:description" content="Laureando in Informatica, sviluppatore full-stack, mobile & AI.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0F1115',
+          panel: '#171A21',
+          panel2: '#1E222B',
+          edge: '#2A2F3A',
+          bone: '#E7E9EE',
+          fog: '#9098AC',
+          signal: '#E8A33D',
+          signaldim: '#8A6528',
+          ok: '#4FD1C5',
+        },
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          body: ['"IBM Plex Sans"', 'sans-serif'],
+        },
+        borderRadius: {
+          win: '10px',
+        },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-ink text-bone font-body antialiased">
+
+<a href="#main" class="skip-link">Vai al contenuto</a>
+
+<!-- ============ TOP BAR / "EDITOR WINDOW" NAV ============ -->
+<header class="sticky top-0 z-50 bg-ink/90 backdrop-blur border-b border-edge">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center h-14 gap-4">
+      <!-- window dots -->
+      <div class="flex items-center gap-1.5 shrink-0" aria-hidden="true">
+        <span class="w-2.5 h-2.5 rounded-full bg-edge"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-edge"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-signal"></span>
+      </div>
+
+      <!-- tabs -->
+      <nav id="main-nav" class="flex-1 flex items-center gap-1 overflow-x-auto no-scrollbar" aria-label="Sezioni">
+        <!-- injected by JS -->
+      </nav>
+
+      <!-- lang switch -->
+      <div id="lang-switch" class="hidden sm:flex items-center gap-0.5 shrink-0 font-mono text-xs border border-edge rounded-md p-0.5" role="group" aria-label="Lingua">
+        <!-- injected by JS -->
+      </div>
+
+      <!-- mobile menu button -->
+      <button id="mobile-menu-btn" class="sm:hidden shrink-0 w-9 h-9 flex items-center justify-center rounded-md border border-edge text-fog" aria-label="Apri menu" aria-expanded="false">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <!-- mobile panel -->
+  <div id="mobile-panel" class="hidden sm:hidden border-t border-edge bg-panel px-4 py-3">
+    <div id="mobile-nav" class="flex flex-col gap-1 font-mono text-sm"></div>
+    <div id="mobile-lang" class="flex items-center gap-1 mt-3 font-mono text-xs"></div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO / about.md ============ -->
+  <section id="about" class="relative overflow-hidden border-b border-edge">
+    <div class="dot-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+      <div class="grid md:grid-cols-[1fr_auto] gap-10 items-start">
+        <div class="max-w-2xl">
+          <p id="hero-eyebrow" class="font-mono text-signal text-sm mb-3"></p>
+          <h1 id="hero-name" class="font-display font-800 text-4xl sm:text-5xl font-extrabold tracking-tight text-bone leading-[1.05]"></h1>
+          <p id="hero-tagline" class="font-mono text-lg sm:text-xl text-fog mt-3 min-h-[1.6em]"></p>
+
+          <blockquote id="hero-bio" class="mt-6 text-bone/90 leading-relaxed border-l-2 border-edge pl-4"></blockquote>
+
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-6 font-mono text-sm text-fog">
+            <span id="hero-location" class="flex items-center gap-1.5"></span>
+            <span id="hero-status" class="flex items-center gap-1.5"></span>
+          </div>
+
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a id="hero-cta-primary" href="#contact" class="btn-primary"></a>
+            <a id="hero-cta-secondary" href="#projects" class="btn-ghost"></a>
+          </div>
+
+          <div id="hero-links" class="flex flex-wrap gap-2 mt-6"></div>
+        </div>
+
+        <!-- terminal-card avatar -->
+        <div class="justify-self-center md:justify-self-end w-64 shrink-0">
+          <div class="rounded-win border border-edge bg-panel overflow-hidden shadow-xl">
+            <div class="flex items-center gap-1.5 px-3 py-2 border-b border-edge bg-panel2">
+              <span class="w-2 h-2 rounded-full bg-edge"></span>
+              <span class="w-2 h-2 rounded-full bg-edge"></span>
+              <span class="w-2 h-2 rounded-full bg-signal"></span>
+              <span class="font-mono text-[10px] text-fog ml-2">whoami.sh</span>
+            </div>
+            <div class="p-6 flex flex-col items-center gap-3">
+              <div class="w-20 h-20 rounded-full border border-signal/40 bg-panel2 flex items-center justify-center font-display font-extrabold text-2xl text-signal">MZ</div>
+              <p class="font-mono text-xs text-fog text-center leading-relaxed">
+                <span class="text-ok">$</span> whoami<br>
+                <span class="text-bone">diabi-mohamed-zakaria</span><span class="cursor-blink text-signal">▍</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION + EXPERIENCE / path.log ============ -->
+  <section id="path" class="border-b border-edge">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <h2 id="path-title" class="section-title"></h2>
+      <div class="grid md:grid-cols-2 gap-12 mt-8">
+        <div>
+          <h3 id="education-title" class="font-mono text-sm text-fog uppercase tracking-wide mb-5"></h3>
+          <ol id="education-list" class="log-list"></ol>
+        </div>
+        <div>
+          <h3 id="experience-title" class="font-mono text-sm text-fog uppercase tracking-wide mb-5"></h3>
+          <ol id="experience-list" class="log-list"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS / projects/ ============ -->
+  <section id="projects" class="border-b border-edge">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <h2 id="projects-title" class="section-title"></h2>
+      <div id="projects-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8"></div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS / skills.json ============ -->
+  <section id="skills" class="border-b border-edge">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+      <h2 id="skills-title" class="section-title"></h2>
+
+      <div class="rounded-win border border-edge bg-panel mt-8 overflow-hidden">
+        <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-edge bg-panel2">
+          <span class="w-2 h-2 rounded-full bg-edge"></span>
+          <span class="w-2 h-2 rounded-full bg-edge"></span>
+          <span class="w-2 h-2 rounded-full bg-signal"></span>
+          <span class="font-mono text-[10px] text-fog ml-2">skills.json</span>
+        </div>
+        <div id="skills-grid" class="grid sm:grid-cols-2 gap-x-8 gap-y-6 p-6"></div>
+      </div>
+
+      <div class="mt-10">
+        <h3 id="languages-title" class="font-mono text-sm text-fog uppercase tracking-wide mb-5"></h3>
+        <div id="languages-list" class="grid sm:grid-cols-2 gap-x-10 gap-y-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT / contact.sh ============ -->
+  <section id="contact" class="border-b border-edge">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+      <div class="rounded-win border border-edge bg-panel overflow-hidden max-w-3xl mx-auto">
+        <div class="flex items-center gap-1.5 px-4 py-2.5 border-b border-edge bg-panel2">
+          <span class="w-2 h-2 rounded-full bg-edge"></span>
+          <span class="w-2 h-2 rounded-full bg-edge"></span>
+          <span class="w-2 h-2 rounded-full bg-signal"></span>
+          <span id="contact-tabname" class="font-mono text-[10px] text-fog ml-2"></span>
+        </div>
+        <div class="p-8 sm:p-10 text-center">
+          <h2 id="contact-title" class="section-title !mt-0 !text-center"></h2>
+          <p id="contact-subtitle" class="text-fog mt-3 max-w-md mx-auto"></p>
+          <div id="contact-links" class="flex flex-wrap justify-center gap-3 mt-8"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-fog font-mono">
+    <p id="footer-tagline"></p>
+    <p id="footer-meta"></p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
