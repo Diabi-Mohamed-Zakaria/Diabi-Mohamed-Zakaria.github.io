@@ -151,6 +151,7 @@
         <span class="project-path">${p.path}</span>
         <div class="flex items-start justify-between gap-3">
           <h3 class="project-name">${p.name}</h3>
+          ${p.link ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub — ${p.name}">${ICON.github}</a>` : ""}
         </div>
         <span class="project-period">${p.period}</span>
         ${p.done ? `<span class="badge-done"><svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>${doneLabel}</span>` : ""}

@@ -348,6 +348,14 @@ html[data-theme="light"] #theme-toggle .icon-sun {
   font-size: 1.05rem;
   color: rgb(var(--color-bone-rgb));
 }
+.project-link {
+  color: rgb(var(--color-fog-rgb));
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+.project-link:hover {
+  color: rgb(var(--color-signal-rgb));
+}
 .project-period {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;

@@ -16,6 +16,9 @@
   const modalDesc = document.getElementById("project-modal-desc");
   const modalTags = document.getElementById("project-modal-tags");
   const modalDone = document.getElementById("project-modal-done");
+  const modalLinkWrap = document.getElementById("project-modal-link-wrap");
+
+  const GITHUB_ICON = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 0 0-2.06 12.67c.33.06.44-.14.44-.31v-1.2c-1.8.39-2.18-.78-2.18-.78-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05.99.67.99.67.58.99 1.52.7 1.89.54.06-.42.23-.7.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.83.06-1.73 0 0 .55-.18 1.79.66a6.2 6.2 0 0 1 3.26 0c1.24-.84 1.79-.66 1.79-.66.35.9.13 1.57.06 1.73.42.46.67 1.03.67 1.74 0 2.49-1.51 3.03-2.95 3.2.24.2.44.6.44 1.21v1.79c0 .17.11.38.44.31A6.5 6.5 0 0 0 8 1.5Z" fill="currentColor"/></svg>';
 
   if (!wrap || !grid || !host || !toggleBtn || !tooltip || !modal) return;
 
@@ -229,6 +232,12 @@
     } else {
       modalDone.className = "hidden shrink-0";
       modalDone.innerHTML = "";
+    }
+
+    if (modalLinkWrap) {
+      modalLinkWrap.innerHTML = p.link
+        ? `<a href="${escapeHtml(p.link)}" target="_blank" rel="noopener noreferrer" class="chip-link">${GITHUB_ICON}<span>GitHub</span></a>`
+        : "";
     }
 
     modal.classList.remove("hidden");
