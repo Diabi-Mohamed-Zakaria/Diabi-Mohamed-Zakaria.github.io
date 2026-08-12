@@ -171,7 +171,8 @@ const SITE_CONTENT = {
         phone: "Telefono",
         whatsapp: "WhatsApp",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        linkedin: "LinkedIn",
+        cv: "Scarica CV"
       },
       copy: "Copia email",
       copied: "Copiata!"
@@ -352,7 +353,8 @@ const SITE_CONTENT = {
         phone: "Phone",
         whatsapp: "WhatsApp",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        linkedin: "LinkedIn",
+        cv: "Download CV"
       },
       copy: "Copy email",
       copied: "Copied!"
@@ -533,7 +535,8 @@ const SITE_CONTENT = {
         phone: "Téléphone",
         whatsapp: "WhatsApp",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        linkedin: "LinkedIn",
+        cv: "Télécharger le CV"
       },
       copy: "Copier l'email",
       copied: "Copié !"
@@ -552,6 +555,13 @@ const CONTACT_HREF = {
   whatsapp: "https://wa.me/393533067756",
   github: "https://github.com/Diabi-Mohamed-Zakaria", 
   linkedin: "www.linkedin.com/in/m-zakaria-diabi-11042a352"
+};
+
+// One PDF per language, picked by the current lang-switch selection.
+const CV_HREF = {
+  it: "cv/CV_Diabi_Mohamed_Zakaria_IT.pdf",
+  en: "cv/CV_Diabi_Mohamed_Zakaria_EN.pdf",
+  fr: "cv/CV_Diabi_Mohamed_Zakaria_FR.pdf"
 };
 
 const SUPPORTED_LANGS = ["it", "en", "fr"];

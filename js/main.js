@@ -13,7 +13,8 @@
     github: '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 0 0-2.06 12.67c.33.06.44-.14.44-.31v-1.2c-1.8.39-2.18-.78-2.18-.78-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05.99.67.99.67.58.99 1.52.7 1.89.54.06-.42.23-.7.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.83.06-1.73 0 0 .55-.18 1.79.66a6.2 6.2 0 0 1 3.26 0c1.24-.84 1.79-.66 1.79-.66.35.9.13 1.57.06 1.73.42.46.67 1.03.67 1.74 0 2.49-1.51 3.03-2.95 3.2.24.2.44.6.44 1.21v1.79c0 .17.11.38.44.31A6.5 6.5 0 0 0 8 1.5Z" fill="currentColor"/></svg>',
     linkedin: '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 6.8V11M5 5v.01M7.5 11V6.8M7.5 8.5c0-.9.7-1.7 1.6-1.7s1.4.7 1.4 1.7V11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     pin: '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 14.5S3 10 3 6.5a5 5 0 0 1 10 0c0 3.5-5 8-5 8Z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6.5" r="1.6" stroke="currentColor" stroke-width="1.2"/></svg>',
-    copy: '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M10.5 5.5V4a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5" stroke="currentColor" stroke-width="1.2"/></svg>'
+    copy: '<svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.2" stroke="currentColor" stroke-width="1.2"/><path d="M10.5 5.5V4a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 4v5A1.5 1.5 0 0 0 4 10.5h1.5" stroke="currentColor" stroke-width="1.2"/></svg>',
+    cv: '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8m0 0 3-3m-3 3-3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.5 11v1.5A1.5 1.5 0 0 0 4 14h8a1.5 1.5 0 0 0 1.5-1.5V11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>'
   };
 
   const LINK_ORDER = ["email", "phone", "whatsapp", "github", "linkedin"];
@@ -195,12 +196,16 @@
     document.getElementById("contact-subtitle").textContent = t.contact.subtitle;
 
     const linksWrap = document.getElementById("contact-links");
+    const cvHref = CV_HREF[currentLang];
+    const cvLabel = t.contact.links.cv;
     linksWrap.innerHTML = LINK_ORDER.map(key => {
       const label = t.contact.links[key];
       const href = CONTACT_HREF[key];
       const external = key === "github" || key === "linkedin" || key === "whatsapp";
       return `<a href="${href}" class="chip-link" ${external ? 'target="_blank" rel="noopener noreferrer"' : ""} aria-label="${label}">${ICON[key]}<span>${label}</span></a>`;
-    }).join("") + `<button type="button" data-copy-email class="chip-link" aria-label="${t.contact.copy}">${ICON.copy}<span data-copy-label>${t.contact.copy}</span></button>`;
+    }).join("")
+      + `<a href="${cvHref}" download target="_blank" rel="noopener noreferrer" class="chip-link" aria-label="${cvLabel}">${ICON.cv}<span>${cvLabel}</span></a>`
+      + `<button type="button" data-copy-email class="chip-link" aria-label="${t.contact.copy}">${ICON.copy}<span data-copy-label>${t.contact.copy}</span></button>`;
   }
 
   function renderFooter(t) {
