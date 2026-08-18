@@ -165,7 +165,7 @@ const SITE_CONTENT = {
     contact: {
       tabname: "contatti.sh",
       title: "Parliamone",
-      subtitle: "Sono aperto a stage, collaborazioni e nuove opportunità. Scrivimi pure, rispondo sempre.",
+      subtitle: "Disponibile per opportunità di stage , lavoro, collaborazioni e nuove opportunità. Scrivimi pure, rispondo sempre.",
       links: {
         email: "Email",
         phone: "Telefono",
@@ -347,7 +347,7 @@ const SITE_CONTENT = {
     contact: {
       tabname: "contact.sh",
       title: "Let's talk",
-      subtitle: "I'm open to internships, collaborations, and new opportunities. Feel free to reach out — I always reply.",
+      subtitle: "Open to internship and job opportunities, collaborations, and new opportunities. Feel free to reach out — I always reply.",
       links: {
         email: "Email",
         phone: "Phone",
@@ -529,7 +529,7 @@ const SITE_CONTENT = {
     contact: {
       tabname: "contact.sh",
       title: "Discutons-en",
-      subtitle: "Je suis ouvert aux stages, collaborations et nouvelles opportunités. N'hésitez pas à m'écrire, je réponds toujours.",
+      subtitle: "Je suis ouvert aux opportunités de stage et d’emploi, collaborations et nouvelles opportunités. N'hésitez pas à m'écrire, je réponds toujours.",
       links: {
         email: "Email",
         phone: "Téléphone",
