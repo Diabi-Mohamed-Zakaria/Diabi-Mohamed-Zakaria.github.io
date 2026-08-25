@@ -554,7 +554,7 @@ const CONTACT_HREF = {
   phone: "tel:+393533067756",
   whatsapp: "https://wa.me/393533067756",
   github: "https://github.com/Diabi-Mohamed-Zakaria", 
-  linkedin: "www.linkedin.com/in/m-zakaria-diabi-11042a352"
+  linkedin: "https://www.linkedin.com/in/m-zakaria-diabi-11042a352"
 };
 
 // One PDF per language, picked by the current lang-switch selection.
