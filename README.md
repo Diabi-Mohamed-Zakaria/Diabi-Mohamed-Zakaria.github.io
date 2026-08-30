@@ -1,61 +1,71 @@
-# Portfolio — Diabi Mohamed Zakaria
+# Diabi Mohamed Zakaria — Portfolio
 
-Sito personale statico (HTML + CSS + JS, Tailwind via CDN, **nessuna build**), in 3 lingue (IT/EN/FR) con selettore in alto a destra. Pensato per essere pubblicato così com'è su GitHub Pages, nel repository `diabi-mohamed-zakaria.github.io`.
+[![Live](https://img.shields.io/badge/live-diabi--mohamed--zakaria.github.io-1a73e8?logo=googlechrome&logoColor=white)](https://diabi-mohamed-zakaria.github.io/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white)](#)
+[![Three.js](https://img.shields.io/badge/Three.js-black?logo=three.js&logoColor=white)](#)
+
+Portfolio personale — laureando in Informatica, sviluppatore full-stack, mobile & AI. Sito statico, nessun framework, nessuna build: si apre e funziona.
+
+**🔗 Live:** [diabi-mohamed-zakaria.github.io](https://diabi-mohamed-zakaria.github.io/)
+
+## Caratteristiche
+
+- 🌍 **Multilingua** — italiano, inglese, francese, con selettore persistente (`localStorage`), senza ricaricare la pagina
+- 🌓 **Tema chiaro / scuro** con rilevamento automatico delle preferenze di sistema
+- 🪐 **Sfondo 3D animato** (Three.js) nella sezione hero
+- ⌨️ **Effetto di scrittura** in stile terminale, disattivato automaticamente se l'utente ha impostato `prefers-reduced-motion`
+- 📄 **CV scaricabile** in tre lingue (IT/EN/FR)
+- 📬 **Sezione contatti** con copia rapida email, link a GitHub e LinkedIn
+- 🔍 **SEO-ready** — meta tag, dati strutturati (JSON-LD), sitemap e robots.txt
+- 📱 Completamente **responsive**
+
+## Stack tecnico
+
+| Livello | Tecnologie |
+|---|---|
+| Markup / stile | HTML5, CSS3, [Tailwind CSS](https://tailwindcss.com/) (via CDN) |
+| Logica | JavaScript vanilla (ES modules) |
+| Grafica 3D | [Three.js](https://threejs.org/) |
+| Font | Sora, JetBrains Mono, IBM Plex Sans (Google Fonts) |
+| Hosting | GitHub Pages |
+
+Nessun bundler, nessun `package.json`, nessuna dipendenza da installare.
 
 ## Struttura del progetto
 
 ```
 .
-├── index.html          → scheletro HTML (il testo viene iniettato da JS)
+├── index.html            → scheletro HTML (il testo viene iniettato via JS)
 ├── css/
-│   └── style.css        → tema, animazioni, componenti custom
+│   └── style.css         → tema, animazioni, componenti custom
 ├── js/
-│   ├── i18n.js           → TUTTO il testo del sito, in it/en/fr (unica fonte)
-│   └── main.js            → rendering + interazioni (nav, lingua, scroll, ecc.)
+│   ├── i18n.js            → tutti i testi del sito, in IT/EN/FR (unica fonte)
+│   ├── main.js             → rendering, interazioni, nav, lingua, scroll
+│   └── solar-system.js      → sfondo 3D (Three.js)
 ├── images/
 │   └── favicon.svg
+├── cv/
+│   └── CV_Diabi_Mohamed_Zakaria_{IT,EN,FR}.pdf
+├── robots.txt / sitemap.xml → configurazione SEO
 └── README.md
 ```
 
-Non c'è alcun framework, build tool o `package.json`: apri `index.html` e funziona.
-
-## Prova in locale
-
-Basta aprire `index.html` nel browser. Se preferisci un server locale (comodo per evitare problemi di cache):
-
-```bash
-cd site
-python3 -m http.server 8000
-# poi apri http://localhost:8000
-```
-
-
-## Come pubblicare su GitHub Pages
-
-Il repository `Diabi-Mohamed-Zakaria.github.io` è uno *user site*: GitHub pubblica automaticamente tutto ciò che sta nella **root del branch `main`**, senza bisogno di configurazioni.
-
-```bash
-# nella cartella dove hai clonato il repository vuoto
-cp -r /percorso/di/questa/cartella/site/* .
-git add .
-git commit -m "Primo sito portfolio"
-git push origin main
-```
-
-Dopo qualche minuto il sito sarà live su `https://Diabi-Mohamed-Zakaria.github.io/`.
-
-Se il branch di default del repository non è `main` (es. `master`), usa quel nome al posto di `main`.
-
-## Come modificare i testi
-
-Tutto il contenuto (titoli, bio, progetti, competenze, contatti...) si trova in **un solo file**: `js/i18n.js`, diviso in tre blocchi `it`, `en`, `fr`. Ogni chiave è commentata e facile da individuare: cambia il valore tra virgolette e salva, senza toccare `main.js`.
-
-Per aggiungere un nuovo progetto, copia un blocco esistente dentro `projects.items` (in tutte e tre le lingue) e modifica i campi `name`, `period`, `desc`, `tags`, `done`.
 
 ## Come funziona (in breve)
 
-- **Nessun build step**: Tailwind CSS viene caricato via CDN (`cdn.tailwindcss.com`) e configurato inline in `index.html` con la palette e i font del sito.
-- **Multilingua senza duplicare le pagine**: `index.html` contiene solo contenitori vuoti con `id`; `js/main.js` legge `SITE_CONTENT[lingua]` da `js/i18n.js` e popola tutto a runtime. Cambiare lingua non ricarica la pagina.
-- La lingua scelta viene salvata in `localStorage`, così chi torna sul sito la ritrova.
-- Font: **Sora** (titoli), **JetBrains Mono** (etichette/nav, richiama un editor di codice), **IBM Plex Sans** (testo).
-- Rispetta `prefers-reduced-motion`: chi disattiva le animazioni nel sistema operativo non vede l'effetto di scrittura o le transizioni.
+- **Multilingua senza duplicare le pagine**: `index.html` contiene solo contenitori vuoti con `id`; `js/main.js` legge `SITE_CONTENT[lingua]` da `js/i18n.js` e popola tutto a runtime.
+- **Tailwind via CDN**: caricato e configurato inline in `index.html` con la palette colori e i font del sito, senza step di build.
+- **Accessibilità**: rispetto di `prefers-reduced-motion`, markup semantico, contrasto verificato in entrambi i temi.
+
+## Deploy
+
+Pubblicato automaticamente via **GitHub Pages** dal branch `main` del repository `diabi-mohamed-zakaria.github.io`.
+
+## Contatti
+
+- ✉️ [mohamedzakariadiabi@gmail.com](mailto:mohamedzakariadiabi@gmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/m-zakaria-diabi-11042a352)
+- 💻 [GitHub](https://github.com/Diabi-Mohamed-Zakaria)
