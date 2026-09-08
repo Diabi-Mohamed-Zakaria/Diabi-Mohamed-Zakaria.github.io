@@ -256,6 +256,30 @@ html[data-theme="light"] #theme-toggle .icon-sun {
   color: rgb(var(--color-signal-rgb));
 }
 
+/* project stack filter chips */
+.filter-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: rgb(var(--color-fog-rgb));
+  background: transparent;
+  border: 1px solid rgb(var(--color-edge-rgb));
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+.filter-chip:hover {
+  border-color: rgb(var(--color-signal-rgb));
+  color: rgb(var(--color-signal-rgb));
+}
+.filter-chip.is-active {
+  background: rgb(var(--color-signal-rgb));
+  border-color: rgb(var(--color-signal-rgb));
+  color: var(--color-on-signal);
+  font-weight: 600;
+}
+
 /* ===================================================================
    Timeline / log list (education + experience)
 =================================================================== */

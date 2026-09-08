@@ -3,6 +3,7 @@
 
   const wrap = document.getElementById("solar-system-wrap");
   const grid = document.getElementById("projects-grid");
+  const filterBar = document.getElementById("projects-filter");
   const host = document.getElementById("solar-system-canvas-host");
   const toggleBtn = document.getElementById("solar-view-toggle");
   const tooltip = document.getElementById("solar-tooltip");
@@ -403,12 +404,14 @@
     sceneActive = !sceneActive;
     wrap.classList.toggle("hidden", !sceneActive);
     grid.classList.toggle("hidden", sceneActive);
+    if (filterBar) filterBar.classList.toggle("hidden", sceneActive);
     applyStaticLabels();
   });
 
   try {
     wrap.classList.remove("hidden"); // give the host real layout dimensions before sizing the renderer
     grid.classList.add("hidden");
+    if (filterBar) filterBar.classList.add("hidden");
     initScene();
     sceneActive = true;
     toggleBtn.classList.remove("hidden");
@@ -418,5 +421,6 @@
     teardown();
     wrap.classList.add("hidden");
     grid.classList.remove("hidden");
+    if (filterBar) filterBar.classList.remove("hidden");
   }
 })();

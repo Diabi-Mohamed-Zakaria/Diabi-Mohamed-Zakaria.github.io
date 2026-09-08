@@ -14,8 +14,20 @@
   const SCROLL_PARALLAX_FACTOR = 0.04; // fraction of scroll delta applied as offset
   const LERP_EASE = 0.06;
 
-  // faint white / amber / pale-azure, matching the terminal accent palette
-  const STAR_COLORS = ["255,255,255", "245,166,35", "154,196,255"];
+ 
+  const STAR_COLORS_DARK = ["255,255,255", "245,166,35", "154,196,255"];
+  const STAR_COLORS_LIGHT = ["60,56,48", "180,110,20", "70,100,150"];
+
+  function isLightTheme() {
+    return document.documentElement.getAttribute("data-theme") === "light";
+  }
+  function starColors() {
+    return isLightTheme() ? STAR_COLORS_LIGHT : STAR_COLORS_DARK;
+  }
+  function pickColor() {
+    const colors = starColors();
+    return colors[(Math.random() * colors.length) | 0];
+  }
 
   let dpr = Math.max(1, window.devicePixelRatio || 1);
   let cssWidth = window.innerWidth;
@@ -35,7 +47,7 @@
       x: Math.random() * cssWidth,
       y: Math.random() * cssHeight,
       r: 1 + Math.random(), // 1-2px
-      color: STAR_COLORS[(Math.random() * STAR_COLORS.length) | 0],
+      color: pickColor(),
       baseAlpha: 0.35 + Math.random() * 0.5,
       phase: Math.random() * Math.PI * 2,
       speed: 0.4 + Math.random() * 0.6
@@ -46,6 +58,17 @@
     const count = isMobile() ? STAR_COUNT_MOBILE : STAR_COUNT_DESKTOP;
     stars = Array.from({ length: count }, randomStar);
   }
+
+  // re-tint existing stars in place when the theme toggles, without
+  // resetting their positions/animation phase
+  function retintStars() {
+    stars.forEach(s => { s.color = pickColor(); });
+    if (prefersReducedMotion) drawFrame(0);
+  }
+  new MutationObserver(retintStars).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"]
+  });
 
   function sizeCanvas() {
     dpr = Math.max(1, window.devicePixelRatio || 1);

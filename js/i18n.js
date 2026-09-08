@@ -141,7 +141,17 @@ const SITE_CONTENT = {
           done: true
         }
       ],
-      doneLabel: "Completato"
+      doneLabel: "Completato",
+      filters: {
+        ariaLabel: "Filtra per ambito",
+        all: "Tutti",
+        mobile: "Mobile",
+        web: "Web",
+        backend: "Backend",
+        ai: "AI",
+        academic: "Accademico",
+        database: "Database"
+      }
     },
     skills: {
       title: "competenze.json",
@@ -323,7 +333,17 @@ const SITE_CONTENT = {
           done: true
         }
       ],
-      doneLabel: "Completed"
+      doneLabel: "Completed",
+      filters: {
+        ariaLabel: "Filter by stack",
+        all: "All",
+        mobile: "Mobile",
+        web: "Web",
+        backend: "Backend",
+        ai: "AI",
+        academic: "Academic",
+        database: "Database"
+      }
     },
     skills: {
       title: "skills.json",
@@ -505,7 +525,17 @@ const SITE_CONTENT = {
           done: true
         }
       ],
-      doneLabel: "Terminé"
+      doneLabel: "Terminé",
+      filters: {
+        ariaLabel: "Filtrer par stack",
+        all: "Tous",
+        mobile: "Mobile",
+        web: "Web",
+        backend: "Backend",
+        ai: "IA",
+        academic: "Académique",
+        database: "Base de données"
+      }
     },
     skills: {
       title: "competences.json",

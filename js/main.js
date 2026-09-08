@@ -18,6 +18,8 @@
   };
 
   const LINK_ORDER = ["email", "phone", "whatsapp", "github", "linkedin"];
+  const CATEGORY_ORDER = ["mobile", "web", "backend", "ai", "academic", "database"];
+  let activeProjectCategory = "all";
 
   /* ---------------------------------------------------------------
      Language handling
@@ -98,6 +100,10 @@
     document.getElementById("hero-cta-secondary").textContent = t.hero.ctaSecondary;
     document.getElementById("hero-whoami-cmd").textContent = t.hero.whoamiCmd;
 
+    const cvBtn = document.getElementById("hero-cta-cv");
+    cvBtn.href = CV_HREF[currentLang];
+    cvBtn.innerHTML = `${ICON.cv}<span>${t.contact.links.cv}</span>`;
+
     const linksWrap = document.getElementById("hero-links");
     linksWrap.innerHTML = LINK_ORDER.map(key => {
       const label = t.contact.links[key];
@@ -148,7 +154,7 @@
 
   function projectCard(p, doneLabel) {
     return `
-      <article class="project-card reveal">
+      <article class="project-card reveal" data-project-category="${p.category}">
         <span class="project-path">${p.path}</span>
         <div class="flex items-start justify-between gap-3">
           <h3 class="project-name">${p.name}</h3>
@@ -161,10 +167,36 @@
       </article>`;
   }
 
+  function renderProjectFilters(t) {
+    const wrap = document.getElementById("projects-filter");
+    if (!wrap) return;
+
+    const present = CATEGORY_ORDER.filter(cat => t.projects.items.some(p => p.category === cat));
+    if (activeProjectCategory !== "all" && !present.includes(activeProjectCategory)) {
+      activeProjectCategory = "all";
+    }
+    const cats = ["all", ...present];
+
+    wrap.setAttribute("aria-label", t.projects.filters.ariaLabel);
+    wrap.innerHTML = cats.map(cat =>
+      `<button type="button" data-project-filter="${cat}" class="filter-chip ${cat === activeProjectCategory ? "is-active" : ""}">${t.projects.filters[cat]}</button>`
+    ).join("");
+  }
+
+  function applyProjectFilter() {
+    document.querySelectorAll("#projects-grid [data-project-category]").forEach(card => {
+      const cat = card.getAttribute("data-project-category");
+      const show = activeProjectCategory === "all" || cat === activeProjectCategory;
+      card.classList.toggle("hidden", !show);
+    });
+  }
+
   function renderProjects(t) {
     document.getElementById("projects-title").textContent = t.projects.title;
+    renderProjectFilters(t);
     document.getElementById("projects-grid").innerHTML = t.projects.items
       .map(p => projectCard(p, t.projects.doneLabel)).join("");
+    applyProjectFilter();
   }
 
   function renderSkills(t) {
@@ -291,6 +323,19 @@
     const navLink = e.target.closest("[data-nav-target]");
     if (navLink) {
       closeMobilePanel();
+      return;
+    }
+
+    const filterBtn = e.target.closest("[data-project-filter]");
+    if (filterBtn) {
+      const cat = filterBtn.getAttribute("data-project-filter");
+      if (cat !== activeProjectCategory) {
+        activeProjectCategory = cat;
+        document.querySelectorAll("[data-project-filter]").forEach(b => {
+          b.classList.toggle("is-active", b.getAttribute("data-project-filter") === activeProjectCategory);
+        });
+        applyProjectFilter();
+      }
       return;
     }
 
