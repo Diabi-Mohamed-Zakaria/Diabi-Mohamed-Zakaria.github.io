@@ -21,6 +21,7 @@ Portfolio personale — laureando in Informatica, sviluppatore full-stack, mobil
 - 📬 **Sezione contatti** con copia rapida email, link a GitHub e LinkedIn
 - 🔍 **SEO-ready** — meta tag, dati strutturati (JSON-LD), sitemap e robots.txt
 - 📱 Completamente **responsive**
+- 💬 **Chat AI** in IT/EN/FR, alimentata dai contenuti pubblici del portfolio, con risposta esplicita quando manca un'informazione
 
 ## Stack tecnico
 
@@ -63,6 +64,18 @@ Nessun bundler, nessun `package.json`, nessuna dipendenza da installare.
 ## Deploy
 
 Pubblicato automaticamente via **GitHub Pages** dal branch `main` del repository `diabi-mohamed-zakaria.github.io`.
+
+### Attivare la chat AI
+
+GitHub Pages ospita solo il frontend. La chat usa Groq tramite il Cloudflare Worker in `chat/`, che conserva la chiave come secret. Finché `js/chat-config.js` non contiene l'URL del Worker, la chat mostra un messaggio di indisponibilità.
+
+1. Crea una chiave nella [Groq Console](https://console.groq.com/keys) e un account Cloudflare. Conserva la chiave privatamente; non incollarla nel codice, nel browser o in Git.
+2. Apri un terminale nella cartella `chat/` ed esegui `npx wrangler login`.
+3. Esegui `npx wrangler secret put GROQ_API_KEY`. Quando Wrangler lo chiede, incolla la chiave nel prompt del terminale. Non scriverla nel comando. Se Wrangler chiede di creare il Worker, conferma.
+4. Esegui `npx wrangler deploy` e copia l'URL `https://…workers.dev` restituito.
+5. Inserisci solo quell'URL in `js/chat-config.js` come `window.PORTFOLIO_CHAT_ENDPOINT`. Pubblica il sito con GitHub Pages e prova una domanda dalla pagina pubblica.
+
+Per aggiornare la conoscenza dopo una modifica a `js/i18n.js`, esegui `node scripts/build-chat-knowledge.mjs` e pubblica anche il Worker aggiornato. Il Worker accetta richieste dal dominio del portfolio; le domande vengono inviate a Groq per generare la risposta. La chiave resta nel secret Cloudflare, ma l'endpoint pubblico può comunque ricevere richieste da client che imitano l'origine: per controllare l'uso, imposta un limite di richieste nel tuo account Cloudflare. Verifica le quote del piano gratuito nella [pagina Groq](https://console.groq.com/docs/rate-limits).
 
 ## Contatti
 

@@ -1,0 +1,10 @@
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+chat/.env
+chat/.env.*
+chat/.dev.vars
+chat/.dev.vars.*
+.wrangler/
+chat/.wrangler/

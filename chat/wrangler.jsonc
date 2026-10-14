@@ -1,0 +1,7 @@
+{
+  "name": "diabi-portfolio-chat",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-14",
+  "workers_dev": true,
+  "secrets": { "required": ["GROQ_API_KEY"] }
+}

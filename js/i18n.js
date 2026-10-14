@@ -46,7 +46,9 @@ const SITE_CONTENT = {
           period: "Lug 2026 — Set 2026 · 3 mesi",
           title: "eFarm Group SRL",
           sub: "Stage — Modulo di Ricerca AI",
-          desc: "Sviluppo del modulo di ricerca AI di FotoPortale.it, la piattaforma che mette in contatto brand e agenzie con creator. Ho realizzato la pipeline completa: sincronizzazione dei profili, generazione del testo di contesto, embedding e ricerca vettoriale combinata a filtri strutturati, oltre al motore che genera la spiegazione testuale dei risultati tramite un LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker con PostgreSQL/pgvector.",
+          desc: "Sviluppo del modulo di ricerca AI di gigshoot, la piattaforma che mette in contatto brand e agenzie con creator. Ho realizzato la pipeline completa: sincronizzazione dei profili, generazione del testo di contesto, embedding e ricerca vettoriale combinata a filtri strutturati, oltre al motore che genera la spiegazione testuale dei risultati tramite un LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker con PostgreSQL/pgvector.",
+          link: "https://www.gigshoot.com/",
+          linkLabel: "Visita gigshoot ↗",
           tags: ["PHP", "Symfony", "Twig", "JavaScript","PHP", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
@@ -157,12 +159,12 @@ const SITE_CONTENT = {
       title: "competenze.json",
       categories: [
         { label: "linguaggi", items: ["Java", "Python", "JavaScript","PHP", "Kotlin", "C", "Swift", "SQL"] },
-        { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "HTML5/CSS3", "EJS", "Agno", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
-        { label: "cloud & database", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC", "Docker"] },
+        { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "EJS", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
+        { label: "cloud & database", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC"] },
         { label: "mobile", items: ["Android (Kotlin)", "iOS (Swift)", "SwiftUI"] },
-        { label: "frontend", items: ["Vanilla JS", "Alpine.js"] },
-        { label: "strumenti & metodi", items: ["Git/GitHub", "Agile/Scrum", "UML", "Linux", "PHPUnit", "JWT", "API Gateway", "Microservizi"] },
-        { label: "ai & automazione", items: ["Prompt Engineering", "LLM/Chatbot AI", "Machine Learning", "Ricerca Vettoriale", "Embedding"] }
+        { label: "frontend", items: ["HTML5/CSS3", "Vanilla JS", "Alpine.js", "Tailwind CSS", "React", "Next.js"] },
+        { label: "strumenti & metodi", items: ["Git/GitHub", "Agile/Scrum", "UML", "Linux", "Docker", "PHPUnit", "JWT", "API Gateway", "Microservizi"] },
+        { label: "ai & automazione", items: ["Agno", "Prompt Engineering", "LLM/Chatbot AI", "Machine Learning", "Ricerca Vettoriale", "Embedding"] }
       ],
       languagesTitle: "Lingue parlate",
       languages: [
@@ -238,7 +240,9 @@ const SITE_CONTENT = {
           period: "Jul 2026 — Sep 2026 · 3 months",
           title: "eFarm Group SRL",
           sub: "Internship — AI Search Module",
-          desc: "Built the AI-powered search module for FotoPortale.it, a platform connecting brands and agencies with creators. I developed the full pipeline: profile data sync, context-text generation, embeddings and vector search combined with structured filters, plus the engine that generates a natural-language explanation of each result via an LLM. Wrote unit and integration tests with PHPUnit in a Dockerized PostgreSQL/pgvector environment.",
+          desc: "Built the AI-powered search module for gigshoot, a platform connecting brands and agencies with creators. I developed the full pipeline: profile data sync, context-text generation, embeddings and vector search combined with structured filters, plus the engine that generates a natural-language explanation of each result via an LLM. Wrote unit and integration tests with PHPUnit in a Dockerized PostgreSQL/pgvector environment.",
+          link: "https://www.gigshoot.com/",
+          linkLabel: "Visit gigshoot ↗",
           tags: ["PHP", "Symfony", "Twig", "JavaScript","PHP", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
@@ -349,12 +353,12 @@ const SITE_CONTENT = {
       title: "skills.json",
       categories: [
         { label: "languages", items: ["Java", "Python", "JavaScript","PHP", "Kotlin", "C", "Swift", "SQL"] },
-        { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "HTML5/CSS3", "EJS", "Agno", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
-        { label: "cloud & database", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC", "Docker"] },
+        { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "EJS", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
+        { label: "cloud & database", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC"] },
         { label: "mobile", items: ["Android (Kotlin)", "iOS (Swift)", "SwiftUI"] },
-        { label: "frontend", items: ["Vanilla JS", "Alpine.js"] },
-        { label: "tools & methods", items: ["Git/GitHub", "Agile/Scrum", "UML", "Linux", "PHPUnit", "JWT", "API Gateway", "Microservices"] },
-        { label: "ai & automation", items: ["Prompt Engineering", "LLM/Chatbot AI", "Machine Learning", "Vector Search", "Embedding"] }
+        { label: "frontend", items: ["HTML5/CSS3", "Vanilla JS", "Alpine.js", "Tailwind CSS", "React", "Next.js"] },
+        { label: "tools & methods", items: ["Git/GitHub", "Agile/Scrum", "UML", "Linux", "Docker", "PHPUnit", "JWT", "API Gateway", "Microservices"] },
+        { label: "ai & automation", items: ["Agno", "Prompt Engineering", "LLM/Chatbot AI", "Machine Learning", "Vector Search", "Embedding"] }
       ],
       languagesTitle: "Spoken languages",
       languages: [
@@ -430,7 +434,9 @@ const SITE_CONTENT = {
           period: "Juil. 2026 — Sept. 2026 · 3 mois",
           title: "eFarm Group SRL",
           sub: "Stage — Module de recherche IA",
-          desc: "Développement du module de recherche IA de FotoPortale.it, une plateforme qui met en relation marques et agences avec des créateurs. J'ai construit le pipeline complet : synchronisation des profils, génération du texte de contexte, embeddings et recherche vectorielle combinée à des filtres structurés, ainsi que le moteur générant une explication en langage naturel des résultats via un LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker PostgreSQL/pgvector.",
+          desc: "Développement du module de recherche IA de gigshoot, une plateforme qui met en relation marques et agences avec des créateurs. J'ai construit le pipeline complet : synchronisation des profils, génération du texte de contexte, embeddings et recherche vectorielle combinée à des filtres structurés, ainsi que le moteur générant une explication en langage naturel des résultats via un LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker PostgreSQL/pgvector.",
+          link: "https://www.gigshoot.com/",
+          linkLabel: "Visiter gigshoot ↗",
           tags: ["PHP", "Symfony", "Twig", "JavaScript","PHP", "LLM API", "PostgreSQL", "pgvector", "Doctrine", "Docker", "PHPUnit"]
         }
       ]
@@ -541,12 +547,12 @@ const SITE_CONTENT = {
       title: "competences.json",
       categories: [
         { label: "langages", items: ["Java", "Python", "JavaScript","PHP", "Kotlin", "C", "Swift", "SQL"] },
-        { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "HTML5/CSS3", "EJS", "Agno", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
-        { label: "cloud & bases de données", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC", "Docker"] },
+        { label: "web & backend", items: ["Node.js", "Express.js", "REST API", "EJS", "PHP", "Symfony", "Javalin", "MQTT (Mosquitto)"] },
+        { label: "cloud & bases de données", items: ["Firebase", "Google Cloud", "PostgreSQL", "pgvector", "Firestore", "SQLite/JDBC"] },
         { label: "mobile", items: ["Android (Kotlin)", "iOS (Swift)", "SwiftUI"] },
-        { label: "frontend", items: ["Vanilla JS", "Alpine.js"] },
-        { label: "outils & méthodes", items: ["Git/GitHub", "Agile/Scrum", "UML", "Linux", "PHPUnit", "JWT", "API Gateway", "Microservices"] },
-        { label: "ia & automatisation", items: ["Prompt Engineering", "LLM/Chatbot AI", "Machine Learning", "Recherche vectorielle", "Embedding"] }
+        { label: "frontend", items: ["HTML5/CSS3", "Vanilla JS", "Alpine.js", "Tailwind CSS", "React", "Next.js"] },
+        { label: "outils & méthodes", items: ["Git/GitHub", "Agile/Scrum", "UML", "Linux", "Docker", "PHPUnit", "JWT", "API Gateway", "Microservices"] },
+        { label: "ia & automatisation", items: ["Agno", "Prompt Engineering", "LLM/Chatbot AI", "Machine Learning", "Recherche vectorielle", "Embedding"] }
       ],
       languagesTitle: "Langues parlées",
       languages: [

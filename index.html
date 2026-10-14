@@ -91,7 +91,7 @@
 <a href="#main" class="skip-link">Vai al contenuto</a>
 
 <!-- ============ TOP BAR / "EDITOR WINDOW" NAV ============ -->
-<header class="sticky top-0 z-50 bg-ink/90 backdrop-blur border-b border-edge">
+<header class="site-header sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="flex items-center h-14 gap-4">
       <!-- window dots -->
@@ -133,23 +133,23 @@
 <main id="main">
 
   <!-- ============ HERO / about.md ============ -->
-  <section id="about" class="relative overflow-hidden border-b border-edge">
+  <section id="about" class="hero-section relative overflow-hidden border-b border-edge">
     <div class="dot-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
       <div class="grid md:grid-cols-[1fr_auto] gap-10 items-start">
-        <div class="max-w-2xl">
+        <div class="hero-copy max-w-2xl">
           <p id="hero-eyebrow" class="font-mono text-signal text-sm mb-3"></p>
           <h1 id="hero-name" class="font-display font-800 text-4xl sm:text-5xl font-extrabold tracking-tight text-bone leading-[1.05]"></h1>
           <p id="hero-tagline" class="font-mono text-lg sm:text-xl text-fog mt-3 min-h-[1.6em]"></p>
 
-          <blockquote id="hero-bio" class="mt-6 text-bone/90 leading-relaxed border-l-2 border-edge pl-4"></blockquote>
+          <blockquote id="hero-bio" class="hero-bio mt-6 text-bone/90 leading-relaxed border-l-2 border-edge pl-4"></blockquote>
 
           <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-6 font-mono text-sm text-fog">
             <span id="hero-location" class="flex items-center gap-1.5"></span>
             <span id="hero-status" class="flex items-center gap-1.5"></span>
           </div>
 
-          <div class="flex flex-wrap gap-3 mt-8">
+          <div class="hero-actions flex flex-wrap gap-3 mt-8">
             <a id="hero-cta-primary" href="#contact" class="btn-primary"></a>
             <a id="hero-cta-cv" href="#" download target="_blank" rel="noopener noreferrer" class="btn-ghost"></a>
             <a id="hero-cta-secondary" href="#projects" class="btn-ghost"></a>
@@ -159,7 +159,7 @@
         </div>
 
         <!-- terminal-card avatar -->
-        <div class="justify-self-center md:justify-self-end w-64 shrink-0">
+        <div class="hero-terminal justify-self-center md:justify-self-end w-64 shrink-0">
           <div class="rounded-win border border-edge bg-panel overflow-hidden shadow-xl">
             <div class="flex items-center gap-1.5 px-3 py-2 border-b border-edge bg-panel2">
               <span class="w-2 h-2 rounded-full bg-edge"></span>
@@ -202,7 +202,9 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
       <div class="flex flex-wrap items-center justify-between gap-3">
         <h2 id="projects-title" class="section-title"></h2>
-        <button id="solar-view-toggle" type="button" class="hidden font-mono text-xs text-fog border border-edge rounded-md px-3 py-1.5 hover:text-signal hover:border-signal transition-colors"></button>
+        <div class="flex flex-wrap gap-2">
+          <button id="solar-view-toggle" type="button" class="hidden font-mono text-xs text-fog border border-edge rounded-md px-3 py-1.5 hover:text-signal hover:border-signal transition-colors"></button>
+        </div>
       </div>
 
       <div id="projects-filter" class="flex flex-wrap gap-2 mt-6" role="group"></div>
@@ -296,8 +298,27 @@
   </div>
 </footer>
 
+<!-- Portfolio assistant -->
+<div class="chat-widget" id="chat-widget">
+  <section class="chat-panel" id="chat-panel" aria-label="Portfolio chat" hidden>
+    <div class="chat-header">
+      <div><strong id="chat-title"></strong><span id="chat-subtitle"></span></div>
+      <button id="chat-close" type="button" aria-label="Chiudi chat">×</button>
+    </div>
+    <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+    <form id="chat-form" class="chat-form">
+      <label class="sr-only" for="chat-input" id="chat-input-label">Scrivi una domanda</label>
+      <input id="chat-input" name="question" type="text" maxlength="700" autocomplete="off" required>
+      <button id="chat-send" type="submit"></button>
+    </form>
+  </section>
+  <button id="chat-toggle" class="chat-toggle" type="button" aria-controls="chat-panel" aria-expanded="false"></button>
+</div>
+
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
+<script src="js/chat-config.js"></script>
+<script src="js/chat.js"></script>
 <script src="js/starfield.js"></script>
 <script type="module" src="js/solar-system.js"></script>
 <script src="js/mascot.js"></script>

@@ -118,19 +118,7 @@
   function typeTagline(text) {
     const node = document.getElementById("hero-tagline");
     if (typeTimer) clearInterval(typeTimer);
-
-    if (prefersReducedMotion) {
-      node.innerHTML = `${text}<span class="cursor-blink text-signal">▍</span>`;
-      return;
-    }
-
-    node.innerHTML = '<span class="cursor-blink text-signal">▍</span>';
-    let i = 0;
-    typeTimer = setInterval(() => {
-      i++;
-      node.innerHTML = `${text.slice(0, i)}<span class="cursor-blink text-signal">▍</span>`;
-      if (i >= text.length) clearInterval(typeTimer);
-    }, 28);
+    node.textContent = text;
   }
 
   function logItem(entry, withDesc) {
@@ -140,6 +128,7 @@
         <p class="log-title">${entry.title}</p>
         <p class="log-sub">${entry.sub}</p>
         ${withDesc && entry.desc ? `<p class="log-desc">${entry.desc}</p>` : ""}
+        ${withDesc && entry.link ? `<a class="project-quick-link" href="${entry.link}" target="_blank" rel="noopener noreferrer">${entry.linkLabel}</a>` : ""}
         ${entry.tags ? `<div class="flex flex-wrap gap-1.5 mt-3">${entry.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>` : ""}
       </li>`;
   }
@@ -153,8 +142,10 @@
   }
 
   function projectCard(p, doneLabel) {
+    const visual = p.path.split("/").pop().replace(/[^a-z0-9-]/gi, "").toLowerCase();
     return `
       <article class="project-card reveal" data-project-category="${p.category}">
+        <div class="project-preview project-preview--${visual}" aria-hidden="true"><span class="preview-grid"></span><span class="preview-object"></span><span class="preview-accent"></span><span class="preview-caption">${p.category} / ${p.period}</span></div>
         <span class="project-path">${p.path}</span>
         <div class="flex items-start justify-between gap-3">
           <h3 class="project-name">${p.name}</h3>
