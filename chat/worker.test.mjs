@@ -40,7 +40,7 @@ test('sends published facts and handles supported and unknown answers', async ()
     assert.equal(upstreamUrl, 'https://api.groq.com/openai/v1/chat/completions');
     assert.equal(payload.model, 'openai/gpt-oss-20b');
     assert.match(payload.messages[1].content, /Università del Piemonte Orientale/);
-    assert.match(payload.messages[0].content, /Always call him Zkaria/);
+    assert.match(payload.messages[0].content, /Always call him Zakaria/);
     assert.match(payload.messages[0].content, /never translate project names/);
     globalThis.fetch = async () => Response.json({ choices: [{ message: { content: JSON.stringify({ known: false, answer: 'Guess' }) } }] });
     response = await worker.fetch(request('Qual è il suo stipendio?'), { GROQ_API_KEY: 'test' });
