@@ -39,8 +39,9 @@ test('sends published facts and handles supported and unknown answers', async ()
     assert.equal((await response.json()).answer, 'Ha studiato Informatica.');
     assert.equal(upstreamUrl, 'https://api.groq.com/openai/v1/chat/completions');
     assert.equal(payload.model, 'openai/gpt-oss-20b');
-    assert.match(payload.messages[1].content, /Università del Piemonte Orientale/);
+    assert.match(payload.messages[2].content, /Università del Piemonte Orientale/);
     assert.match(payload.messages[1].content, /Disponibile a lavorare/);
+    assert.match(payload.messages[1].content, /verified additional profile facts/);
     assert.match(payload.messages[0].content, /Only mention additional profile facts when directly relevant/);
     assert.match(payload.messages[0].content, /Always call him Zakaria/);
     assert.match(payload.messages[0].content, /never translate project names/);
