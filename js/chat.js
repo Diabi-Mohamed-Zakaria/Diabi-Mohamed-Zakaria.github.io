@@ -5,6 +5,11 @@
     en: { toggle: 'Ask me', title: 'Ask about Zakaria', subtitle: 'Answers based on the portfolio', intro: "Hi! Ask me about Zakaria's projects, education or skills.", placeholder: 'Type a question…', send: 'Send', close: 'Close chat', loading: 'Checking the portfolio…', error: 'AI chat is unavailable right now.', contact: 'Ask Zakaria directly', request: 'Contact Zakaria', requestIntro: 'Leave your question and an email address or phone number for a reply.', message: 'Your question', method: 'How should Zakaria reach you?', phone: 'Phone', email: 'Your email', phoneLabel: 'Your phone number', privacy: 'Your question and contact details go to FormSubmit, which emails them to Zakaria.', sending: 'Sending…', sent: 'Request sent. Zakaria will reply as soon as possible.', failed: 'Could not send. Email mohamedzakariadiabi@gmail.com.', submit: 'Send request' },
     fr: { toggle: 'Une question ?', title: 'Question sur Zakaria', subtitle: 'Réponses basées sur le portfolio', intro: 'Bonjour ! Posez une question sur les projets, les études ou les compétences de Zakaria.', placeholder: 'Écrivez une question…', send: 'Envoyer', close: 'Fermer le chat', loading: 'Je consulte le portfolio…', error: "Le chat IA est indisponible pour le moment.", contact: 'Demander à Zakaria', request: 'Contacter Zakaria', requestIntro: 'Laissez votre question et une adresse email ou un numéro de téléphone pour recevoir une réponse.', message: 'Votre question', method: 'Comment vous recontacter ?', phone: 'Téléphone', email: 'Votre email', phoneLabel: 'Votre numéro', privacy: 'Votre question et vos coordonnées sont transmises à FormSubmit pour être envoyées à Zakaria par email.', sending: 'Envoi…', sent: 'Demande envoyée. Zakaria vous répondra dès que possible.', failed: "Envoi impossible. Écrivez à mohamedzakariadiabi@gmail.com.", submit: 'Envoyer la demande' }
   };
+  const formCopy = {
+    it: { firstName: 'Nome', lastName: 'Cognome', company: 'Azienda (opzionale)', privacy: 'Nome, cognome, azienda se indicata, domanda e recapito vengono inviati a FormSubmit per consegnarli a Zakaria via email.' },
+    en: { firstName: 'First name', lastName: 'Last name', company: 'Company (optional)', privacy: 'Your name, optional company, question and contact details go to FormSubmit, which emails them to Zakaria.' },
+    fr: { firstName: 'Prénom', lastName: 'Nom', company: 'Entreprise (facultatif)', privacy: 'Votre nom, votre entreprise si indiquée, votre question et vos coordonnées sont transmis à FormSubmit pour être envoyés à Zakaria par email.' }
+  };
   const $ = id => document.getElementById(id);
   const panel = $('chat-panel');
   const toggle = $('chat-toggle');
@@ -13,6 +18,9 @@
   const input = $('chat-input');
   const requestModal = $('contact-request-modal');
   const requestForm = $('contact-request-form');
+  const requestFirstName = $('contact-request-first-name');
+  const requestLastName = $('contact-request-last-name');
+  const requestCompany = $('contact-request-company');
   const requestMessage = $('contact-request-message');
   const requestMethod = $('contact-request-method');
   const requestValue = $('contact-request-value');
@@ -30,6 +38,7 @@
   }
   function translate() {
     const t = copy[lang()];
+    const ft = formCopy[lang()];
     toggle.textContent = t.toggle;
     $('chat-title').textContent = t.title;
     $('chat-subtitle').textContent = t.subtitle;
@@ -41,11 +50,14 @@
     $('contact-request-open').textContent = t.request;
     $('contact-request-title').textContent = t.request;
     $('contact-request-intro').textContent = t.requestIntro;
+    $('contact-request-first-name-label').textContent = ft.firstName;
+    $('contact-request-last-name-label').textContent = ft.lastName;
+    $('contact-request-company-label').textContent = ft.company;
     $('contact-request-message-label').textContent = t.message;
     $('contact-request-method-label').textContent = t.method;
     $('contact-request-phone-option').textContent = t.phone;
     $('contact-request-value-label').textContent = requestMethod.value === 'phone' ? t.phoneLabel : t.email;
-    $('contact-request-privacy').textContent = t.privacy;
+    $('contact-request-privacy').textContent = ft.privacy;
     $('contact-request-submit').textContent = t.submit;
   }
   function openRequest(question = '') {
@@ -53,7 +65,7 @@
     requestMessage.value = question;
     $('contact-request-status').textContent = '';
     requestModal.hidden = false;
-    requestMessage.focus();
+    requestFirstName.focus();
   }
   function closeRequest() {
     requestModal.hidden = true;
@@ -90,6 +102,10 @@
         body: JSON.stringify({
           _subject: 'Nuova richiesta dal portfolio',
           _honey: $('contact-request-website').value,
+          name: `${requestFirstName.value.trim()} ${requestLastName.value.trim()}`,
+          first_name: requestFirstName.value.trim(),
+          last_name: requestLastName.value.trim(),
+          ...(requestCompany.value.trim() ? { company: requestCompany.value.trim() } : {}),
           message: requestMessage.value.trim(),
           ...(requestMethod.value === 'email' ? { email: requestValue.value.trim() } : { phone: requestValue.value.trim() })
         })

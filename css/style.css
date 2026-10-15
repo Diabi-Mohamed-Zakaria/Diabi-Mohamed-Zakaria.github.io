@@ -495,6 +495,9 @@ html[data-theme="light"] #theme-toggle .icon-sun {
 .contact-request-card h2 { padding-right: 1.5rem; font: 700 1.2rem 'Sora', sans-serif; }
 .contact-request-card p { margin-top: .5rem; color: rgb(var(--color-fog-rgb)); font-size: .85rem; line-height: 1.5; }
 .contact-request-card form { display: grid; gap: .55rem; margin-top: 1.2rem; text-align: left; }
+.contact-request-name-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+.contact-request-name-row > div { display: grid; gap: .55rem; }
+@media (max-width: 360px) { .contact-request-name-row { grid-template-columns: 1fr; } }
 .contact-request-card label { margin-top: .35rem; font-size: .8rem; font-weight: 600; }
 .contact-request-card textarea, .contact-request-card input, .contact-request-card select { width: 100%; padding: .7rem; border: 1px solid rgb(var(--color-edge-rgb)); border-radius: 8px; background: rgb(var(--color-ink-rgb)); color: rgb(var(--color-bone-rgb)); font-size: 1rem; }
 .contact-request-card :is(textarea, input, select):focus-visible { outline: 2px solid rgb(var(--color-signal-rgb)); }

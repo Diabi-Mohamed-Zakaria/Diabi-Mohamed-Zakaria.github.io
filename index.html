@@ -297,6 +297,18 @@
     <h2 id="contact-request-title"></h2>
     <p id="contact-request-intro"></p>
     <form id="contact-request-form">
+      <div class="contact-request-name-row">
+        <div>
+          <label for="contact-request-first-name" id="contact-request-first-name-label"></label>
+          <input id="contact-request-first-name" type="text" maxlength="80" autocomplete="given-name" required>
+        </div>
+        <div>
+          <label for="contact-request-last-name" id="contact-request-last-name-label"></label>
+          <input id="contact-request-last-name" type="text" maxlength="80" autocomplete="family-name" required>
+        </div>
+      </div>
+      <label for="contact-request-company" id="contact-request-company-label"></label>
+      <input id="contact-request-company" type="text" maxlength="120" autocomplete="organization">
       <label for="contact-request-message" id="contact-request-message-label"></label>
       <textarea id="contact-request-message" maxlength="700" rows="4" required></textarea>
       <label for="contact-request-method" id="contact-request-method-label"></label>

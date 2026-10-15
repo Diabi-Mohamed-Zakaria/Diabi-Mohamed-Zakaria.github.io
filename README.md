@@ -79,7 +79,7 @@ Per aggiornare la conoscenza dopo una modifica a `js/i18n.js`, esegui `node scri
 
 ### Attivare le richieste via email
 
-La finestra di contatto usa [FormSubmit](https://formsubmit.co/) per recapitare domanda e indirizzo email o numero di telefono a `mohamedzakariadiabi@gmail.com`. Non serve un dominio proprio. La prima richiesta avvia la verifica: apri il messaggio di attivazione ricevuto in Gmail e conferma l'indirizzo prima di pubblicare il modulo. Poi invia una richiesta di prova dalla pagina e verifica che arrivi in casella. FormSubmit elabora i dati inviati dai visitatori; la finestra lo indica prima dell'invio.
+La finestra di contatto usa [FormSubmit](https://formsubmit.co/) per recapitare nome, cognome, eventuale azienda, domanda e indirizzo email o numero di telefono a `mohamedzakariadiabi@gmail.com`. Non serve un dominio proprio. La prima richiesta avvia la verifica: apri il messaggio di attivazione ricevuto in Gmail e conferma l'indirizzo prima di pubblicare il modulo. Poi invia una richiesta di prova dalla pagina e verifica che arrivi in casella. FormSubmit elabora i dati inviati dai visitatori; la finestra lo indica prima dell'invio.
 
 Se il servizio non conferma l'invio, la finestra mostra l'indirizzo email diretto. Il Worker continua a servire solo la chat AI.
 
