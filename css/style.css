@@ -476,6 +476,22 @@ html[data-theme="light"] #theme-toggle .icon-sun {
 .chat-form input:focus-visible { outline: 2px solid rgb(var(--color-signal-rgb)); }
 .chat-form button { padding: .6rem .8rem; border-radius: 7px; background: rgb(var(--color-signal-rgb)); color: var(--color-on-signal); font: 600 .8rem 'JetBrains Mono', monospace; }
 .chat-form button:disabled { opacity: .55; cursor: wait; }
+.chat-contact-offer, .contact-request-open { border: 1px solid rgb(var(--color-signal-rgb) / .45); border-radius: 999px; padding: .65rem .9rem; color: rgb(var(--color-signal-rgb)); font: 600 .76rem 'JetBrains Mono', monospace; background: rgb(var(--color-signal-rgb) / .08); }
+.chat-contact-offer { align-self: flex-start; text-align: left; }
+.chat-contact-offer:hover, .contact-request-open:hover { background: rgb(var(--color-signal-rgb) / .16); }
+.contact-request-open { margin-top: 1.5rem; }
+.contact-request-overlay { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 1rem; background: rgb(0 0 0 / .65); backdrop-filter: blur(8px); }
+.contact-request-overlay[hidden] { display: none; }
+.contact-request-card { position: relative; width: min(100%, 420px); max-height: calc(100dvh - 2rem); overflow-y: auto; padding: 1.6rem; border: 1px solid rgb(var(--color-edge-rgb)); border-radius: 18px; color: rgb(var(--color-bone-rgb)); background: rgb(var(--color-panel-rgb)); box-shadow: 0 20px 60px rgb(0 0 0 / .3); }
+.contact-request-close { position: absolute; top: .7rem; right: .9rem; font-size: 1.5rem; color: rgb(var(--color-fog-rgb)); }
+.contact-request-card h2 { padding-right: 1.5rem; font: 700 1.2rem 'Sora', sans-serif; }
+.contact-request-card p { margin-top: .5rem; color: rgb(var(--color-fog-rgb)); font-size: .85rem; line-height: 1.5; }
+.contact-request-card form { display: grid; gap: .55rem; margin-top: 1.2rem; text-align: left; }
+.contact-request-card label { margin-top: .35rem; font-size: .8rem; font-weight: 600; }
+.contact-request-card textarea, .contact-request-card input, .contact-request-card select { width: 100%; padding: .7rem; border: 1px solid rgb(var(--color-edge-rgb)); border-radius: 8px; background: rgb(var(--color-ink-rgb)); color: rgb(var(--color-bone-rgb)); font-size: 1rem; }
+.contact-request-card :is(textarea, input, select):focus-visible { outline: 2px solid rgb(var(--color-signal-rgb)); }
+.contact-request-card button[type="submit"] { margin-top: .5rem; padding: .75rem; border-radius: 8px; background: rgb(var(--color-signal-rgb)); color: var(--color-on-signal); font-weight: 700; }
+.contact-request-card button:disabled { opacity: .6; }
 @media (max-width: 480px) { .chat-widget { left: 1rem; right: 1rem; } .chat-panel { width: 100%; height: min(520px, calc(100dvh - 6rem)); } }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }

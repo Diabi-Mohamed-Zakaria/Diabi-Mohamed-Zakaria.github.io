@@ -7,7 +7,6 @@ const request = (question, lang = 'it', from = origin) => new Request('https://w
   method: 'POST', headers: { Origin: from, 'Content-Type': 'application/json' },
   body: JSON.stringify({ question, lang })
 });
-
 test('rejects unknown origins and oversized input before calling AI', async () => {
   assert.equal((await worker.fetch(request('hello', 'en', 'https://elsewhere.example'), {})).status, 403);
   assert.equal((await worker.fetch(request('x'.repeat(701)), {})).status, 400);
@@ -41,8 +40,12 @@ test('sends published facts and handles supported and unknown answers', async ()
     assert.equal(upstreamUrl, 'https://api.groq.com/openai/v1/chat/completions');
     assert.equal(payload.model, 'openai/gpt-oss-20b');
     assert.match(payload.messages[1].content, /Università del Piemonte Orientale/);
+    assert.match(payload.messages[0].content, /Always call him Zkaria/);
+    assert.match(payload.messages[0].content, /never translate project names/);
     globalThis.fetch = async () => Response.json({ choices: [{ message: { content: JSON.stringify({ known: false, answer: 'Guess' }) } }] });
     response = await worker.fetch(request('Qual è il suo stipendio?'), { GROQ_API_KEY: 'test' });
-    assert.match((await response.json()).answer, /Non ho informazioni verificate/);
+    const unknown = await response.json();
+    assert.equal(unknown.known, false);
+    assert.match(unknown.answer, /Non ho informazioni verificate/);
   } finally { globalThis.fetch = originalFetch; }
 });

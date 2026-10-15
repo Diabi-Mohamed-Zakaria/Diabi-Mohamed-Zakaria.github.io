@@ -257,6 +257,7 @@
           <h2 id="contact-title" class="section-title !mt-0 !text-center"></h2>
           <p id="contact-subtitle" class="text-fog mt-3 max-w-md mx-auto"></p>
           <div id="contact-links" class="flex flex-wrap justify-center gap-3 mt-8"></div>
+          <button id="contact-request-open" class="contact-request-open" type="button"></button>
         </div>
       </div>
     </div>
@@ -287,6 +288,26 @@
       <div id="project-modal-tags" class="flex flex-wrap gap-1.5 mt-5"></div>
       <div id="project-modal-link-wrap" class="mt-5"></div>
     </div>
+  </div>
+</div>
+
+<div id="contact-request-modal" class="contact-request-overlay" role="dialog" aria-modal="true" aria-labelledby="contact-request-title" hidden>
+  <div class="contact-request-card">
+    <button id="contact-request-close" class="contact-request-close" type="button" aria-label="Chiudi">×</button>
+    <h2 id="contact-request-title"></h2>
+    <p id="contact-request-intro"></p>
+    <form id="contact-request-form">
+      <label for="contact-request-message" id="contact-request-message-label"></label>
+      <textarea id="contact-request-message" maxlength="700" rows="4" required></textarea>
+      <label for="contact-request-method" id="contact-request-method-label"></label>
+      <select id="contact-request-method"><option value="email">Email</option><option value="phone" id="contact-request-phone-option"></option></select>
+      <label for="contact-request-value" id="contact-request-value-label"></label>
+      <input id="contact-request-value" type="email" maxlength="150" autocomplete="email" required>
+      <input id="contact-request-website" class="sr-only" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p id="contact-request-privacy"></p>
+      <p id="contact-request-status" role="status" aria-live="polite"></p>
+      <button id="contact-request-submit" type="submit"></button>
+    </form>
   </div>
 </div>
 

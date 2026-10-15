@@ -77,6 +77,12 @@ GitHub Pages ospita solo il frontend. La chat usa Groq tramite il Cloudflare Wor
 
 Per aggiornare la conoscenza dopo una modifica a `js/i18n.js`, esegui `node scripts/build-chat-knowledge.mjs` e pubblica anche il Worker aggiornato. Il Worker accetta richieste dal dominio del portfolio; le domande vengono inviate a Groq per generare la risposta. La chiave resta nel secret Cloudflare, ma l'endpoint pubblico può comunque ricevere richieste da client che imitano l'origine: per controllare l'uso, imposta un limite di richieste nel tuo account Cloudflare. Verifica le quote del piano gratuito nella [pagina Groq](https://console.groq.com/docs/rate-limits).
 
+### Attivare le richieste via email
+
+La finestra di contatto usa [FormSubmit](https://formsubmit.co/) per recapitare domanda e indirizzo email o numero di telefono a `mohamedzakariadiabi@gmail.com`. Non serve un dominio proprio. La prima richiesta avvia la verifica: apri il messaggio di attivazione ricevuto in Gmail e conferma l'indirizzo prima di pubblicare il modulo. Poi invia una richiesta di prova dalla pagina e verifica che arrivi in casella. FormSubmit elabora i dati inviati dai visitatori; la finestra lo indica prima dell'invio.
+
+Se il servizio non conferma l'invio, la finestra mostra l'indirizzo email diretto. Il Worker continua a servire solo la chat AI.
+
 ## Contatti
 
 - ✉️ [mohamedzakariadiabi@gmail.com](mailto:mohamedzakariadiabi@gmail.com)
