@@ -15,6 +15,7 @@ const knowledge = Object.fromEntries(Object.entries(content).map(([lang, page]) 
   projects: page.projects.items,
   skills: page.skills.categories,
   languages: page.skills.languages,
+  interests: page.beyond.interests,
   contact: {
     email: 'mohamedzakariadiabi@gmail.com',
     github: 'https://github.com/Diabi-Mohamed-Zakaria',

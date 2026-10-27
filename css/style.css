@@ -223,6 +223,79 @@ html[data-theme="light"] #theme-toggle .icon-sun {
   font-size: 1.1rem;
 }
 
+/* Personal interests: four compact cards in one desktop row. */
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .8rem;
+}
+.beyond-card {
+  border: 1px solid rgb(var(--color-edge-rgb));
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgb(var(--color-panel-rgb) / .9);
+  box-shadow: inset 0 1px rgb(var(--color-bone-rgb) / .04);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.beyond-card:hover {
+  border-color: rgb(var(--color-signal-rgb) / .55);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgb(0 0 0 / .13);
+}
+.beyond-visual {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: rgb(var(--color-panel2-rgb));
+}
+.beyond-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgb(0 0 0 / .25));
+  pointer-events: none;
+}
+.beyond-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.beyond-card:hover .beyond-visual img { transform: scale(1.045); }
+.beyond-content {
+  padding: 1rem 1.05rem 1.2rem;
+}
+.beyond-number {
+  position: absolute;
+  bottom: .8rem;
+  left: .9rem;
+  z-index: 1;
+  color: white;
+  font: 500 .75rem 'JetBrains Mono', monospace;
+}
+.beyond-card-title {
+  color: rgb(var(--color-bone-rgb));
+  font: 700 .94rem 'Sora', sans-serif;
+}
+.beyond-card-description {
+  margin-top: .55rem;
+  color: var(--color-muted);
+  font-size: .82rem;
+  line-height: 1.5;
+}
+@media (max-width: 899px) {
+  .beyond-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .beyond-grid { grid-template-columns: 1fr; }
+  .beyond-visual { aspect-ratio: 16 / 8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beyond-card:hover { transform: none; }
+  .beyond-card:hover .beyond-visual img { transform: none; }
+}
+
 /* ===================================================================
    Buttons
 =================================================================== */

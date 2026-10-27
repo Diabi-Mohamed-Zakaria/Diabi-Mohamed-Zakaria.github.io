@@ -362,10 +362,12 @@
   function initScene() {
     const w = host.clientWidth, h = host.clientHeight;
     if (!w || !h) throw new Error("solar-system-canvas-host has no layout size");
+    const items = getProjectItems();
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(50, w / h, 0.1, 200);
-    camera.position.set(0, 9, 14);
+    const outerOrbit = 2.6 + Math.max(items.length - 1, 0) * 1.15;
+    camera.position.set(0, outerOrbit * 0.7, outerOrbit * (mobileQuery.matches ? 2.3 : 1.65));
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobileQuery.matches ? 1.5 : 2));
@@ -382,14 +384,14 @@
     controls.dampingFactor = 0.08;
     controls.enablePan = false;
     controls.minDistance = 6;
-    controls.maxDistance = 26;
+    controls.maxDistance = Math.max(26, outerOrbit * 3);
     controls.minPolarAngle = Math.PI * 0.15;
     controls.maxPolarAngle = Math.PI * 0.49;
     controls.target.set(0, 0, 0);
     controls.update();
 
     buildStar();
-    buildPlanets(getProjectItems());
+    buildPlanets(items);
 
     host.addEventListener("pointermove", onPointerMove);
     host.addEventListener("pointerdown", onPointerDown);

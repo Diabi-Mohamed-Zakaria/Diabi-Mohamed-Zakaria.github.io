@@ -23,6 +23,8 @@
         "title": "eFarm Group SRL",
         "sub": "Stage — Modulo di Ricerca AI",
         "desc": "Sviluppo del modulo di ricerca AI di gigshoot, la piattaforma che mette in contatto brand e agenzie con creator. Ho realizzato la pipeline completa: sincronizzazione dei profili, generazione del testo di contesto, embedding e ricerca vettoriale combinata a filtri strutturati, oltre al motore che genera la spiegazione testuale dei risultati tramite un LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker con PostgreSQL/pgvector.",
+        "link": "https://www.gigshoot.com/",
+        "linkLabel": "Visita gigshoot ↗",
         "tags": [
           "PHP",
           "Symfony",
@@ -35,11 +37,27 @@
           "Doctrine",
           "Docker",
           "PHPUnit"
-        ],
-        "link": "https://www.gigshoot.com/"
+        ]
       }
     ],
     "projects": [
+      {
+        "name": "gigshoot — Ricerca AI",
+        "category": "ai",
+        "path": "~/progetti/gigshoot-ricerca-ai",
+        "period": "2026",
+        "desc": "Modulo di ricerca AI sviluppato durante lo stage presso eFarm Group SRL per trovare creator su gigshoot. Ho realizzato sincronizzazione dei profili, generazione del contesto, embedding e ricerca vettoriale con filtri strutturati, oltre alle spiegazioni dei risultati generate tramite LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker e PostgreSQL/pgvector.",
+        "tags": [
+          "PHP",
+          "Symfony",
+          "LLM API",
+          "PostgreSQL",
+          "pgvector",
+          "Docker",
+          "PHPUnit"
+        ],
+        "done": true
+      },
       {
         "name": "MiCasaEsTuCasa",
         "category": "mobile",
@@ -280,6 +298,24 @@
         "pct": 60
       }
     ],
+    "interests": [
+      {
+        "title": "Calcio & Formula 1",
+        "description": "Un gol all'ultimo minuto o un sorpasso all'ultimo giro: due sport diversi, stessa voglia di restare a vedere come finisce."
+      },
+      {
+        "title": "Smontare e rimontare",
+        "description": "Se vedo una vite, prima o poi mi chiedo cosa c'è sotto. Smontare, capire e rimontare: possibilmente senza far avanzare pezzi."
+      },
+      {
+        "title": "Viaggi",
+        "description": "Mi piace cambiare panorama e perdermi quel tanto che basta per scoprire qualcosa di nuovo. Torno con più curiosità che souvenir."
+      },
+      {
+        "title": "Storia",
+        "description": "Mi piace scoprire come vivevano le persone prima di noi: ogni epoca ha le sue idee geniali, i suoi errori e qualche domanda ancora aperta."
+      }
+    ],
     "contact": {
       "email": "mohamedzakariadiabi@gmail.com",
       "github": "https://github.com/Diabi-Mohamed-Zakaria",
@@ -310,6 +346,8 @@
         "title": "eFarm Group SRL",
         "sub": "Internship — AI Search Module",
         "desc": "Built the AI-powered search module for gigshoot, a platform connecting brands and agencies with creators. I developed the full pipeline: profile data sync, context-text generation, embeddings and vector search combined with structured filters, plus the engine that generates a natural-language explanation of each result via an LLM. Wrote unit and integration tests with PHPUnit in a Dockerized PostgreSQL/pgvector environment.",
+        "link": "https://www.gigshoot.com/",
+        "linkLabel": "Visit gigshoot ↗",
         "tags": [
           "PHP",
           "Symfony",
@@ -322,11 +360,27 @@
           "Doctrine",
           "Docker",
           "PHPUnit"
-        ],
-        "link": "https://www.gigshoot.com/"
+        ]
       }
     ],
     "projects": [
+      {
+        "name": "gigshoot — Ricerca AI",
+        "category": "ai",
+        "path": "~/projects/gigshoot-ai-search",
+        "period": "2026",
+        "desc": "AI search module developed during my internship at eFarm Group SRL to find creators on gigshoot. I built profile synchronization, context generation, embeddings and vector search with structured filters, plus LLM-generated explanations of results. Unit and integration tests with PHPUnit in a Docker and PostgreSQL/pgvector environment.",
+        "tags": [
+          "PHP",
+          "Symfony",
+          "LLM API",
+          "PostgreSQL",
+          "pgvector",
+          "Docker",
+          "PHPUnit"
+        ],
+        "done": true
+      },
       {
         "name": "MiCasaEsTuCasa",
         "category": "mobile",
@@ -567,6 +621,24 @@
         "pct": 60
       }
     ],
+    "interests": [
+      {
+        "title": "Football & Formula 1",
+        "description": "A last-minute goal or a last-lap overtake: different sports, same reason to keep watching until the very end."
+      },
+      {
+        "title": "Taking things apart",
+        "description": "Show me a screw and sooner or later I'll wonder what's underneath. Take it apart, figure it out, put it back together — ideally with no spare pieces."
+      },
+      {
+        "title": "Travel",
+        "description": "I like a change of scenery and getting just lost enough to discover something new. I come back with more curiosity than souvenirs."
+      },
+      {
+        "title": "History",
+        "description": "I like discovering how people lived before us: every era has brilliant ideas, its mistakes, and a few questions still open."
+      }
+    ],
     "contact": {
       "email": "mohamedzakariadiabi@gmail.com",
       "github": "https://github.com/Diabi-Mohamed-Zakaria",
@@ -597,6 +669,8 @@
         "title": "eFarm Group SRL",
         "sub": "Stage — Module de recherche IA",
         "desc": "Développement du module de recherche IA de gigshoot, une plateforme qui met en relation marques et agences avec des créateurs. J'ai construit le pipeline complet : synchronisation des profils, génération du texte de contexte, embeddings et recherche vectorielle combinée à des filtres structurés, ainsi que le moteur générant une explication en langage naturel des résultats via un LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker PostgreSQL/pgvector.",
+        "link": "https://www.gigshoot.com/",
+        "linkLabel": "Visiter gigshoot ↗",
         "tags": [
           "PHP",
           "Symfony",
@@ -609,11 +683,27 @@
           "Doctrine",
           "Docker",
           "PHPUnit"
-        ],
-        "link": "https://www.gigshoot.com/"
+        ]
       }
     ],
     "projects": [
+      {
+        "name": "gigshoot — Ricerca AI",
+        "category": "ai",
+        "path": "~/projets/gigshoot-recherche-ia",
+        "period": "2026",
+        "desc": "Module de recherche IA développé pendant mon stage chez eFarm Group SRL pour trouver des créateurs sur gigshoot. J'ai réalisé la synchronisation des profils, la génération du contexte, les embeddings et la recherche vectorielle avec filtres structurés, ainsi que les explications des résultats générées par LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker et PostgreSQL/pgvector.",
+        "tags": [
+          "PHP",
+          "Symfony",
+          "LLM API",
+          "PostgreSQL",
+          "pgvector",
+          "Docker",
+          "PHPUnit"
+        ],
+        "done": true
+      },
       {
         "name": "MiCasaEsTuCasa",
         "category": "mobile",
@@ -852,6 +942,24 @@
         "name": "Anglais",
         "level": "B2",
         "pct": 60
+      }
+    ],
+    "interests": [
+      {
+        "title": "Football & Formule 1",
+        "description": "Un but à la dernière minute ou un dépassement dans le dernier tour : deux sports différents, la même envie de suivre jusqu'au bout."
+      },
+      {
+        "title": "Démonter et remonter",
+        "description": "Quand je vois une vis, je finis par me demander ce qu'il y a dessous. Démonter, comprendre, remonter — si possible sans pièces en trop."
+      },
+      {
+        "title": "Voyages",
+        "description": "J'aime changer d'horizon et me perdre juste assez pour découvrir quelque chose de nouveau. Je reviens avec plus de curiosité que de souvenirs."
+      },
+      {
+        "title": "Histoire",
+        "description": "J'aime découvrir comment vivaient les gens avant nous : chaque époque a ses idées brillantes, ses erreurs et quelques questions encore ouvertes."
       }
     ],
     "contact": {

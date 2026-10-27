@@ -28,7 +28,7 @@ const SITE_CONTENT = {
       tagline: "Sviluppatore Full-Stack, Mobile & AI",
       bio: "Studente di Informatica all'Università del Piemonte Orientale con solida esperienza pratica nello sviluppo software full-stack, mobile e distribuito. Progetto e realizzo applicazioni reali che spaziano da backend e infrastrutture cloud a sistemi mobile e intelligenza artificiale, con particolare interesse per i modelli generativi, le pipeline basate su LLM e la ricerca semantica.",
       location: "Vercelli, Italia",
-      status: "In stage presso eFarm Group SRL (lug–set 2026)",
+      status: "Stage presso eFarm Group SRL concluso (lug–set 2026)",
       ctaPrimary: "Scrivimi",
       ctaSecondary: "Vedi i progetti",
       whoamiCmd: "chiSono"
@@ -56,6 +56,15 @@ const SITE_CONTENT = {
     projects: {
       title: "progetti/",
       items: [
+        {
+          name: "gigshoot — Ricerca AI",
+          category: "ai",
+          path: "~/progetti/gigshoot-ricerca-ai",
+          period: "2026",
+          desc: "Modulo di ricerca AI sviluppato durante lo stage presso eFarm Group SRL per trovare creator su gigshoot. Ho realizzato sincronizzazione dei profili, generazione del contesto, embedding e ricerca vettoriale con filtri strutturati, oltre alle spiegazioni dei risultati generate tramite LLM. Test unitari e di integrazione con PHPUnit in ambiente Docker e PostgreSQL/pgvector.",
+          tags: ["PHP", "Symfony", "LLM API", "PostgreSQL", "pgvector", "Docker", "PHPUnit"],
+          done: true
+        },
         {
           name: "MiCasaEsTuCasa",
           category: "mobile",
@@ -174,6 +183,16 @@ const SITE_CONTENT = {
         { name: "Inglese", level: "B2", pct: 60 }
       ]
     },
+    beyond: {
+      title: "Oltre il codice",
+      intro: "Quando chiudo l'editor, la curiosità resta aperta.",
+      interests: [
+        { title: "Calcio & Formula 1", description: "Un gol all'ultimo minuto o un sorpasso all'ultimo giro: due sport diversi, stessa voglia di restare a vedere come finisce." },
+        { title: "Smontare e rimontare", description: "Se vedo una vite, prima o poi mi chiedo cosa c'è sotto. Smontare, capire e rimontare: possibilmente senza far avanzare pezzi." },
+        { title: "Viaggi", description: "Mi piace cambiare panorama e perdermi quel tanto che basta per scoprire qualcosa di nuovo. Torno con più curiosità che souvenir." },
+        { title: "Storia", description: "Mi piace scoprire come vivevano le persone prima di noi: ogni epoca ha le sue idee geniali, i suoi errori e qualche domanda ancora aperta." }
+      ]
+    },
     contact: {
       tabname: "contatti.sh",
       title: "Parliamone",
@@ -191,7 +210,7 @@ const SITE_CONTENT = {
     },
     footer: {
       tagline: "Costruisco, imparo, ripeto.",
-      updated: "Ultimo aggiornamento: agosto 2026"
+      updated: "Ultimo aggiornamento: ottobre 2026"
     }
   },
 
@@ -222,7 +241,7 @@ const SITE_CONTENT = {
       tagline: "Full-Stack, Mobile & AI Developer",
       bio: "Computer Science student at Università del Piemonte Orientale with solid hands-on experience in full-stack, mobile, and distributed software development. I design and build real applications spanning backend systems and cloud infrastructure to mobile apps and artificial intelligence, with a particular interest in generative models, LLM-based pipelines, and semantic search.",
       location: "Vercelli, Italy",
-      status: "Currently interning at eFarm Group SRL (Jul–Sep 2026)",
+      status: "Completed internship at eFarm Group SRL (Jul–Sep 2026)",
       ctaPrimary: "Get in touch",
       ctaSecondary: "View projects",
       whoamiCmd: "whoAmI"
@@ -250,6 +269,15 @@ const SITE_CONTENT = {
     projects: {
       title: "projects/",
       items: [
+        {
+          name: "gigshoot — Ricerca AI",
+          category: "ai",
+          path: "~/projects/gigshoot-ai-search",
+          period: "2026",
+          desc: "AI search module developed during my internship at eFarm Group SRL to find creators on gigshoot. I built profile synchronization, context generation, embeddings and vector search with structured filters, plus LLM-generated explanations of results. Unit and integration tests with PHPUnit in a Docker and PostgreSQL/pgvector environment.",
+          tags: ["PHP", "Symfony", "LLM API", "PostgreSQL", "pgvector", "Docker", "PHPUnit"],
+          done: true
+        },
         {
           name: "MiCasaEsTuCasa",
           category: "mobile",
@@ -368,6 +396,16 @@ const SITE_CONTENT = {
         { name: "English", level: "B2", pct: 60 }
       ]
     },
+    beyond: {
+      title: "Beyond code",
+      intro: "When I close the editor, my curiosity stays open.",
+      interests: [
+        { title: "Football & Formula 1", description: "A last-minute goal or a last-lap overtake: different sports, same reason to keep watching until the very end." },
+        { title: "Taking things apart", description: "Show me a screw and sooner or later I'll wonder what's underneath. Take it apart, figure it out, put it back together — ideally with no spare pieces." },
+        { title: "Travel", description: "I like a change of scenery and getting just lost enough to discover something new. I come back with more curiosity than souvenirs." },
+        { title: "History", description: "I like discovering how people lived before us: every era has brilliant ideas, its mistakes, and a few questions still open." }
+      ]
+    },
     contact: {
       tabname: "contact.sh",
       title: "Let's talk",
@@ -385,7 +423,7 @@ const SITE_CONTENT = {
     },
     footer: {
       tagline: "Build, learn, repeat.",
-      updated: "Last updated: August 2026"
+      updated: "Last updated: October 2026"
     }
   },
 
@@ -416,7 +454,7 @@ const SITE_CONTENT = {
       tagline: "Développeur Full-Stack, Mobile & IA",
       bio: "Étudiant en informatique à l'Università del Piemonte Orientale, avec une solide expérience pratique du développement logiciel full-stack, mobile et distribué. Je conçois et réalise des applications réelles allant des backends et infrastructures cloud aux systèmes mobiles et à l'intelligence artificielle, avec un intérêt particulier pour les modèles génératifs, les pipelines basés sur des LLM et la recherche sémantique.",
       location: "Vercelli, Italie",
-      status: "En stage chez eFarm Group SRL (juil.–sept. 2026)",
+      status: "Stage chez eFarm Group SRL terminé (juil.–sept. 2026)",
       ctaPrimary: "Me contacter",
       ctaSecondary: "Voir les projets",
       whoamiCmd: "quiJeSuis"
@@ -444,6 +482,15 @@ const SITE_CONTENT = {
     projects: {
       title: "projets/",
       items: [
+        {
+          name: "gigshoot — Ricerca AI",
+          category: "ai",
+          path: "~/projets/gigshoot-recherche-ia",
+          period: "2026",
+          desc: "Module de recherche IA développé pendant mon stage chez eFarm Group SRL pour trouver des créateurs sur gigshoot. J'ai réalisé la synchronisation des profils, la génération du contexte, les embeddings et la recherche vectorielle avec filtres structurés, ainsi que les explications des résultats générées par LLM. Tests unitaires et d'intégration avec PHPUnit dans un environnement Docker et PostgreSQL/pgvector.",
+          tags: ["PHP", "Symfony", "LLM API", "PostgreSQL", "pgvector", "Docker", "PHPUnit"],
+          done: true
+        },
         {
           name: "MiCasaEsTuCasa",
           category: "mobile",
@@ -562,6 +609,16 @@ const SITE_CONTENT = {
         { name: "Anglais", level: "B2", pct: 60 }
       ]
     },
+    beyond: {
+      title: "Au-delà du code",
+      intro: "Quand je ferme l'éditeur, ma curiosité reste ouverte.",
+      interests: [
+        { title: "Football & Formule 1", description: "Un but à la dernière minute ou un dépassement dans le dernier tour : deux sports différents, la même envie de suivre jusqu'au bout." },
+        { title: "Démonter et remonter", description: "Quand je vois une vis, je finis par me demander ce qu'il y a dessous. Démonter, comprendre, remonter — si possible sans pièces en trop." },
+        { title: "Voyages", description: "J'aime changer d'horizon et me perdre juste assez pour découvrir quelque chose de nouveau. Je reviens avec plus de curiosité que de souvenirs." },
+        { title: "Histoire", description: "J'aime découvrir comment vivaient les gens avant nous : chaque époque a ses idées brillantes, ses erreurs et quelques questions encore ouvertes." }
+      ]
+    },
     contact: {
       tabname: "contact.sh",
       title: "Discutons-en",
@@ -579,7 +636,7 @@ const SITE_CONTENT = {
     },
     footer: {
       tagline: "Je construis, j'apprends, je recommence.",
-      updated: "Dernière mise à jour : août 2026"
+      updated: "Dernière mise à jour : octobre 2026"
     }
   }
 };

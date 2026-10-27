@@ -213,6 +213,35 @@
     `).join("");
   }
 
+  function renderBeyond(t) {
+    document.getElementById("beyond-title").textContent = t.beyond.title;
+    document.getElementById("beyond-intro").textContent = t.beyond.intro;
+    const grid = document.getElementById("beyond-grid");
+    const images = ["images/hobby-sport.webp?v=20261026-history", "images/hobby-tinkering.webp", "images/hobby-travel.webp", "images/hobby-history.webp"];
+    grid.replaceChildren(...t.beyond.interests.map((interest, index) => {
+      const card = el("article", "beyond-card reveal");
+      const visual = el("div", "beyond-visual");
+      const img = document.createElement("img");
+      img.src = images[index];
+      img.alt = "";
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.width = 1200;
+      img.height = 800;
+      const number = el("span", "beyond-number");
+      number.textContent = String(index + 1).padStart(2, "0");
+      visual.append(img, number);
+      const content = el("div", "beyond-content");
+      const title = el("h3", "beyond-card-title");
+      title.textContent = interest.title;
+      const description = el("p", "beyond-card-description");
+      description.textContent = interest.description;
+      content.append(title, description);
+      card.append(visual, content);
+      return card;
+    }));
+  }
+
   function renderContact(t) {
     document.getElementById("contact-tabname").textContent = t.contact.tabname;
     document.getElementById("contact-title").textContent = t.contact.title;
@@ -246,6 +275,7 @@
     renderPath(t);
     renderProjects(t);
     renderSkills(t);
+    renderBeyond(t);
     renderContact(t);
     renderFooter(t);
     setupReveal();

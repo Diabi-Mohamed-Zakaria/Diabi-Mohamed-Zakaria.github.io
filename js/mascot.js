@@ -11,9 +11,9 @@
   const TAUNT_DURATION = 2200;
   const TAUNT_COOLDOWN = 3000;
   const lines = {
-    it: { welcome: "Benvenuto nel mio portfolio! Prova a prendermi 🙂", chase: ["Troppo lento!", "Quasi preso!", "Riprova!"], caught: "Mi hai preso!" },
-    en: { welcome: "Welcome to my portfolio! Try to catch me 🙂", chase: ["Too slow!", "Almost got me!", "Try again!"], caught: "You got me!" },
-    fr: { welcome: "Bienvenue dans mon portfolio ! Essaie de m'attraper 🙂", chase: ["Trop lent !", "Presque !", "Essaie encore !"], caught: "Tu m'as eu !" }
+    it: { welcome: "Benvenuto nel mio portfolio! 🙂", chase: ["Troppo lento!", "Quasi preso!", "Riprova!"], caught: "Mi hai preso!" },
+    en: { welcome: "Welcome to my portfolio! 🙂", chase: ["Too slow!", "Almost got me!", "Try again!"], caught: "You got me!" },
+    fr: { welcome: "Bienvenue dans mon portfolio ! 🙂", chase: ["Trop lent !", "Presque !", "Essaie encore !"], caught: "Tu m'as eu !" }
   };
   const contextualLines = {
     it: { projects: "È difficile trascinare o vedere tutti i pianeti? Premi «Vista griglia» per esplorare tutti i progetti.", contact: "Qui puoi scaricare il mio CV o contattarmi." },
@@ -180,7 +180,7 @@
   root.id = "dz-mascot";
   root.className = "dz-mascot";
   root.type = "button";
-  root.setAttribute("aria-label", "Prova a prendere la mascotte");
+  root.setAttribute("aria-label", "Mascotte interattiva");
   root.setAttribute("data-expression", "neutral");
   root.innerHTML = `
     <div class="dz-eyes" aria-hidden="true">
@@ -373,7 +373,7 @@
         shown.add(section);
         lastHint = performance.now();
         const lang = document.documentElement.lang;
-        say((contextualLines[lang] || contextualLines.it)[section], section === "projects" ? 6000 : 4500);
+        say((contextualLines[lang] || contextualLines.it)[section], section === "projects" ? 10000 : 4500);
       }
     }, { threshold: 0.1 });
     ["projects", "contact"].forEach((id) => {
